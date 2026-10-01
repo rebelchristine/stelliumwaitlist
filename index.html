@@ -123,6 +123,9 @@
     .waitlist-row input { flex: 1; }
   }
   .form-note { font-size: .9rem; color: var(--ink-faint); margin: .8rem 0 0; }
+  .form-consent { font-size: .8rem; color: var(--ink-faint); margin: .35rem 0 0; }
+  .center .form-consent { text-align: center; }
+  .closer .form-consent { color: #a9a2b0; }
   .form-error { font-size: .95rem; color: #9b2c3a; margin: .6rem 0 0; }
   .form-error:empty { margin: 0; }
   .waitlist .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
@@ -274,6 +277,7 @@
         <div class="hp" aria-hidden="true"><input type="text" name="company" tabindex="-1" autocomplete="off"></div>
         <p class="form-error" id="error-hero" role="alert"></p>
         <p class="form-note">Founding members get first access and founding-member pricing.</p>
+        <p class="form-consent">You'll get emails from Christine about Stellium, and you can unsubscribe anytime.</p>
       </form>
 
       <div class="hero-sig">
@@ -489,6 +493,7 @@
         <div class="hp" aria-hidden="true"><input type="text" name="company" tabindex="-1" autocomplete="off"></div>
         <p class="form-error" id="error-join" role="alert"></p>
         <p class="form-note">Founding members get first access and founding-member pricing.</p>
+        <p class="form-consent">You'll get emails from Christine about Stellium, and you can unsubscribe anytime.</p>
       </form>
     </div>
   </section>
@@ -509,8 +514,8 @@
 </footer>
 
 <script>
-  // Both waitlist forms POST the email to /api/waitlist (a Vercel function in api/waitlist.js).
-  // No keys live here. The endpoint holds any secrets server-side.
+  // Both waitlist forms POST the email to /api/waitlist (api/waitlist.js), which adds her to Customer.io.
+  // No keys live here. The Customer.io credentials stay in Vercel environment variables.
   // The hidden "company" field is a bot trap. People never see it, so the endpoint can drop any submission that fills it.
   function confirmation() {
     var box = document.createElement("div");
@@ -519,6 +524,16 @@
     box.setAttribute("tabindex", "-1");
     box.innerHTML = "<strong>You're on the list.</strong><p>Watch your inbox for a note from Christine.</p>";
     return box;
+  }
+
+  // Coming back from a plain form post (JavaScript was off when she submitted).
+  var params = new URLSearchParams(location.search);
+  if (params.get("joined") === "1") {
+    document.querySelectorAll("form.waitlist").forEach(function (f) { f.replaceWith(confirmation()); });
+  } else if (params.get("error") === "1") {
+    document.querySelectorAll("form.waitlist .form-error").forEach(function (e) {
+      e.textContent = "That didn't go through. Please try again in a minute.";
+    });
   }
 
   document.querySelectorAll("form.waitlist").forEach(function (form) {
