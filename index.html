@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stellium · See your next 90 days</title>
+<meta name="description" content="Stellium is cash flow software for women who run service businesses. It reads your QuickBooks and shows you what your cash is doing for the next 90 days. Join the waitlist.">
+<meta property="og:title" content="Stellium · See your next 90 days">
+<meta property="og:description" content="Cash flow software for women founders who run service businesses. Join the waitlist.">
+<meta property="og:image" content="img/christine-walsh.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f6f4f2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23917b8e'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' fill='%23fff'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Branding: warm and editorial. Libre Baskerville headlines, Source Sans body,
+     cream paper and plum ink, one neon chartreuse accent used only on the button. */
+  :root {
+    --paper: #f6f4f2;
+    --paper-deep: #ece8e4;
+    --card: #fdfcfb;
+    --ink: #2e2b36;
+    --ink-soft: #5d5866;
+    --ink-faint: #6f6978;       /* darkened from the live site's #8c8694 to pass AA contrast on small text */
+    --line: #dcd6d0;
+    --plum: #917b8e;           /* brand mark only */
+    --accent: #d4ff3a;         /* the one accent: buttons only */
+    --accent-press: #c2ef1f;
+    --measure: 65ch;
+    --serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
+    --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 1.0625rem/1.65 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  ::selection { background: var(--ink); color: var(--paper); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .wrap { width: 100%; max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+  .prose { max-width: var(--measure); }
+  .prose p { margin: 0 0 1.1em; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.2; margin: 0 0 .6em; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(2rem, 7vw, 3.4rem); }
+  h2 { font-size: clamp(1.6rem, 5vw, 2.4rem); }
+  h3 { font-size: 1.2rem; }
+  .kicker {
+    font: 600 .75rem/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-faint); margin: 0 0 1rem;
+  }
+  .lede { font-size: 1.15rem; color: var(--ink-soft); }
+
+  section { padding: 4rem 0; scroll-margin-top: 6.5rem; }
+  @media (min-width: 820px) { section { scroll-margin-top: 4.5rem; } }
+  .band { background: var(--paper-deep); }
+
+  /* 01 Header */
+  .site-header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(246, 244, 242, .94);
+    backdrop-filter: saturate(1.2) blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 0 1rem; min-height: 4rem; }
+  .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; margin-right: auto; }
+  .brand-mark {
+    width: 2rem; height: 2rem; border-radius: 50%; background: var(--plum); color: #fff;
+    display: grid; place-items: center; font: 400 1.05rem/1 var(--serif);
+  }
+  .brand-name { font: 400 1.35rem/1 var(--serif); }
+  .brand-name small { display: block; font: 600 .6rem/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--ink-faint); margin-top: .3rem; }
+  /* Phone: section links sit on their own scrollable row under the logo. Desktop: inline. */
+  .nav {
+    order: 3; flex-basis: 100%; display: flex; gap: 1.25rem;
+    overflow-x: auto; scrollbar-width: none; padding: .1rem 0 .7rem; margin-top: -.2rem;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { flex: none; text-decoration: none; font-size: .95rem; color: var(--ink-soft); }
+  .nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+  @media (min-width: 820px) { .nav { order: 0; flex-basis: auto; padding: 0; margin: 0; gap: 1.4rem; } }
+
+  /* The one accent lives here */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 3rem; padding: 0 1.4rem; border: 0; border-radius: 999px;
+    background: var(--accent); color: var(--ink);
+    font: 700 1rem/1 var(--sans); text-decoration: none; cursor: pointer;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .btn:hover { background: var(--accent-press); }
+  .btn:active { transform: translateY(1px); }
+  .btn[disabled] { opacity: .6; cursor: progress; }
+  .btn-sm { min-height: 2.5rem; padding: 0 1.1rem; font-size: .9rem; }
+
+  /* Waitlist form (appears twice, identical) */
+  .waitlist { width: 100%; max-width: 30rem; }
+  .waitlist-row { display: flex; flex-direction: column; gap: .6rem; }
+  .waitlist label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .waitlist input[type="email"] {
+    width: 100%; min-height: 3rem; padding: 0 1.1rem;
+    border: 1px solid var(--line); border-radius: 999px; background: var(--card);
+    font: 400 1rem/1 var(--sans); color: var(--ink);
+  }
+  .waitlist input[type="email"]::placeholder { color: var(--ink-faint); }
+  .waitlist input[type="email"]:focus { outline: 2px solid var(--ink); outline-offset: 1px; border-color: var(--ink); }
+  @media (min-width: 520px) {
+    .waitlist-row { flex-direction: row; }
+    .waitlist-row input { flex: 1; }
+  }
+  .form-note { font-size: .9rem; color: var(--ink-faint); margin: .8rem 0 0; }
+  .form-error { font-size: .95rem; color: #9b2c3a; margin: .6rem 0 0; }
+  .form-error:empty { margin: 0; }
+  .waitlist .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .confirm {
+    max-width: 30rem; padding: 1.25rem 1.4rem; border: 1px solid var(--line);
+    border-radius: 1rem; background: var(--card);
+  }
+  .confirm strong { display: block; font: 400 1.25rem/1.3 var(--serif); margin-bottom: .3rem; }
+  .confirm p { margin: 0; color: var(--ink-soft); }
+  .center .waitlist, .center .confirm { margin-left: auto; margin-right: auto; text-align: left; }
+  .center .form-note { text-align: center; }
+
+  /* 02 Hero */
+  .hero { padding: 3.5rem 0 4rem; }
+  .hero h1 { max-width: 20ch; margin-left: auto; margin-right: auto; }
+  .hero .lede { max-width: 46ch; margin: 0 auto 2rem; }
+  .hero-sig { display: flex; align-items: center; justify-content: center; gap: .75rem; margin-top: 2.5rem; color: var(--ink-soft); font-size: .95rem; text-align: left; }
+  .hero-sig span { max-width: 22rem; }
+  .hero-sig img { flex: none; width: 3.25rem; height: 3.25rem; border-radius: 50%; object-fit: cover; }
+
+  /* 03 Problem */
+  .problem-list { list-style: none; padding: 0; margin: 2rem 0; display: grid; gap: 1rem; }
+  .problem-list li { padding: 1.1rem 1.25rem; background: var(--card); border: 1px solid var(--line); border-radius: .9rem; }
+
+  /* 04 What it is: product preview */
+  .split { display: grid; gap: 2.5rem; align-items: center; }
+  @media (min-width: 900px) { .split { grid-template-columns: 1fr 1fr; gap: 4rem; } }
+  .app {
+    background: var(--card); border: 1px solid var(--line); border-radius: 1.1rem;
+    box-shadow: 0 30px 60px -30px rgba(46, 43, 54, .35); overflow: hidden;
+  }
+  .app-bar { display: flex; align-items: center; gap: .4rem; padding: .7rem 1rem; border-bottom: 1px solid var(--line); background: var(--paper); }
+  .app-bar i { width: .55rem; height: .55rem; border-radius: 50%; background: var(--line); }
+  .app-bar span { margin-left: .6rem; font-size: .8rem; color: var(--ink-faint); }
+  .app-body { padding: 1.25rem; }
+  .app-label { font: 600 .7rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
+  .app-total { font: 400 2.2rem/1.1 var(--serif); margin: .35rem 0 1rem; }
+  .app-accounts { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; margin-bottom: 1.25rem; }
+  .app-accounts div { padding: .6rem .7rem; border: 1px solid var(--line); border-radius: .6rem; font-size: .8rem; color: var(--ink-faint); }
+  .app-accounts b { display: block; font: 600 .95rem/1.3 var(--sans); color: var(--ink); }
+  .app-chart { width: 100%; height: auto; }
+  .app-caption { font-size: .8rem; color: var(--ink-faint); margin: .5rem 0 0; }
+
+  /* 05 How it works */
+  .steps { list-style: none; padding: 0; margin: 2.5rem 0 0; display: grid; gap: 1.25rem; counter-reset: step; }
+  @media (min-width: 860px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+  .steps li { counter-increment: step; padding: 1.5rem; background: var(--card); border: 1px solid var(--line); border-radius: 1rem; }
+  .steps li::before { content: "0" counter(step); display: block; font: 400 1.6rem/1 var(--serif); color: var(--ink-faint); margin-bottom: 1rem; }
+  .steps p { margin: 0; color: var(--ink-soft); }
+
+  /* 06 For / not for */
+  .fit { display: grid; gap: 1.25rem; margin-top: 2.5rem; }
+  @media (min-width: 860px) { .fit { grid-template-columns: 1fr 1fr; } }
+  .fit > div { padding: 1.6rem; border-radius: 1rem; border: 1px solid var(--line); background: var(--card); }
+  .fit > div.not { background: transparent; border-style: dashed; }
+  .fit ul { margin: 0; padding-left: 1.1rem; }
+  .fit li { margin-bottom: .8rem; }
+  .fit li:last-child { margin-bottom: 0; }
+
+  /* 07 About */
+  .about { display: grid; gap: 2rem; align-items: start; }
+  @media (min-width: 860px) { .about { grid-template-columns: minmax(0, 22rem) 1fr; gap: 4rem; } }
+  .about img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 1.1rem; }
+
+  /* 08 Why you */
+  .pull { font: 400 clamp(1.3rem, 4vw, 1.75rem)/1.45 var(--serif); margin: 0 0 1.5rem; letter-spacing: 0; }
+  .why-body { margin: 0 auto; }
+
+  /* 09 Proof */
+  .creds { list-style: none; padding: 0; margin: 2rem 0 3rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
+  .creds li { padding: .45rem .9rem; border: 1px solid var(--line); border-radius: 999px; font-size: .9rem; color: var(--ink-soft); background: var(--card); }
+  .quotes { display: grid; gap: 1.25rem; }
+  @media (min-width: 760px) { .quotes { grid-template-columns: 1fr 1fr; } }
+  .quotes figure { margin: 0; padding: 1.6rem; background: var(--card); border: 1px solid var(--line); border-radius: 1rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.25rem; }
+  .quotes blockquote { margin: 0; }
+  .quotes figcaption { display: flex; align-items: center; gap: .75rem; font-size: .9rem; color: var(--ink-faint); line-height: 1.35; }
+  .quotes figcaption b { display: block; color: var(--ink-soft); font-weight: 600; }
+  .initials { width: 2.4rem; height: 2.4rem; flex: none; border-radius: 50%; background: var(--paper-deep); display: grid; place-items: center; font: 400 .85rem/1 var(--serif); color: var(--ink-soft); }
+
+  .stat { margin: 3.5rem auto 0; text-align: center; max-width: var(--measure); }
+  .stat-figure { font: 400 clamp(2.4rem, 9vw, 3.6rem)/1.1 var(--serif); margin: 0 0 .6rem; }
+  .stat-figure span { color: var(--ink-faint); padding: 0 .2em; }
+  .stat p { margin: 0; color: var(--ink-soft); }
+
+  /* 10 What happens */
+  .next { list-style: none; padding: 0; margin: 2.5rem 0 0; display: grid; gap: 1rem; }
+  .next li { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; align-items: start; }
+  .next li span { width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 1px solid var(--ink); display: grid; place-items: center; font: 400 1rem/1 var(--serif); }
+  .next h3 { margin: .35rem 0 .3rem; }
+  .next p { margin: 0; color: var(--ink-soft); }
+
+  /* 11 Waitlist block */
+  .closer { background: var(--ink); color: var(--paper); padding: 5rem 0; }
+  .closer h2 { color: #fff; }
+  .closer .lede { color: #cfc9d3; margin-bottom: 2rem; }
+  .closer .waitlist input[type="email"] { border-color: transparent; }
+  .closer .waitlist input[type="email"]:focus { outline-color: var(--paper); }
+  .closer .form-note { color: #a9a2b0; }
+  .closer .form-error { color: #ffb3bd; }
+  .closer :focus-visible { outline-color: var(--paper); }
+  .closer .confirm { background: #3a3644; border-color: #4a4555; }
+  .closer .confirm p { color: #cfc9d3; }
+
+  /* 12 Footer */
+  .site-footer { padding: 2.5rem 0 3rem; font-size: .9rem; color: var(--ink-faint); }
+  .site-footer .wrap { display: flex; flex-direction: column; gap: 1rem; }
+  .site-footer nav { display: flex; flex-wrap: wrap; gap: 1.1rem; }
+  .site-footer a { text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+  @media (min-width: 760px) { .site-footer .wrap { flex-direction: row; justify-content: space-between; align-items: center; } }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<!-- 01 Header -->
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Stellium, back to top">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      <span class="brand-name">Stellium<small>for women</small></span>
+    </a>
+    <nav class="nav" aria-label="On this page">
+      <a href="#problem">The problem</a>
+      <a href="#how">How it works</a>
+      <a href="#for">Who it's for</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="btn btn-sm" href="#join">Join the waitlist</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 02 Hero -->
+  <section class="hero">
+    <div class="wrap center">
+      <p class="kicker">Cash flow software for women founders</p>
+      <h1>You are making the money, and nobody ever showed you what's next</h1>
+      <p class="lede">Stellium reads your QuickBooks and shows you what your cash is doing for the next 90 days, so you know what you can spend this month and where the low point is before you get there.</p>
+
+      <form class="waitlist" action="/api/waitlist" method="post" novalidate>
+        <div class="waitlist-row">
+          <label for="email-hero">Email address</label>
+          <input id="email-hero" type="email" name="email" placeholder="you@yourbusiness.com" autocomplete="email" inputmode="email" required aria-describedby="error-hero">
+          <button class="btn" type="submit">Join the waitlist</button>
+        </div>
+        <div class="hp" aria-hidden="true"><input type="text" name="company" tabindex="-1" autocomplete="off"></div>
+        <p class="form-error" id="error-hero" role="alert"></p>
+        <p class="form-note">Founding members get first access and founding-member pricing.</p>
+      </form>
+
+      <div class="hero-sig">
+        <img src="img/christine-walsh.jpg" alt="" width="52" height="52">
+        <span>Built by Christine Walsh: 12 years on Wall Street, host of Made for Money, and author of <em>Be the Queen of Your Money</em></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 The problem -->
+  <section id="problem" class="band">
+    <div class="wrap">
+      <div class="prose">
+        <p class="kicker">The problem</p>
+        <h2>You check the balance more than you admit</h2>
+        <p>You have been dreaming forever about this business making money, and now it does, and you cannot see what it looks like ninety days from now.</p>
+      </div>
+      <ul class="problem-list prose">
+        <li>The balance tells you almost nothing about the end of the month, so you check it again.</li>
+        <li>Payroll, the bills, and the quarterly taxes all seem to land in the same week, and you are in it when it happens.</li>
+        <li>The hire you desperately want (read: need) to make gets decided on how the balance looked that morning.</li>
+      </ul>
+      <div class="prose">
+        <p>Your bookkeeper sends a profit and loss report that tells you what already happened, and you still say "I don't know my numbers." Every week you don't look makes the next look harder, because the longer you wait, the worse you fear it is.</p>
+        <p>Shame keeps money in the dark, and when we avoid our numbers, we are also avoiding our ability to choose.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 What it is -->
+  <section id="what">
+    <div class="wrap split">
+      <div class="prose">
+        <p class="kicker">What it is</p>
+        <h2>One calm view of the next 90 days, kept live from QuickBooks</h2>
+        <p>Stellium is cash flow software for women who run service businesses. It connects to the QuickBooks you already use, so there is nothing to migrate and your bookkeeper keeps doing the work they do now.</p>
+        <p>It takes what your books already know and carries it forward 30, 60, and 90 days, with what is moving your cash and when. Your spreadsheet did its job for a season, and you are outgrowing it.</p>
+      </div>
+
+      <figure class="app" aria-label="Preview of the Stellium cash view, with example numbers">
+        <div class="app-bar"><i></i><i></i><i></i><span>Stellium · Your money</span></div>
+        <div class="app-body">
+          <div class="app-label">Cash on hand</div>
+          <div class="app-total">$41,600</div>
+          <div class="app-accounts">
+            <div>Checking<b>$26,300</b></div>
+            <div>Savings<b>$12,400</b></div>
+            <div>Tax set-aside<b>$2,900</b></div>
+          </div>
+          <div class="app-label">Next 90 days</div>
+          <svg class="app-chart" viewBox="0 0 320 120" role="img" aria-label="Cash dips to a low point around day 40, then recovers by day 90">
+            <line x1="0" y1="104" x2="320" y2="104" stroke="#dcd6d0" stroke-width="1"/>
+            <path d="M8 40 C 50 44, 80 60, 120 84 S 170 92, 200 70 S 270 36, 312 30" fill="none" stroke="#2e2b36" stroke-width="2.25" stroke-linecap="round"/>
+            <circle cx="140" cy="86" r="4.5" fill="#fdfcfb" stroke="#2e2b36" stroke-width="2"/>
+            <text x="140" y="74" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#5d5866">low point</text>
+            <text x="8" y="118" font-family="Source Sans 3, sans-serif" font-size="9" fill="#8c8694">today</text>
+            <text x="312" y="118" text-anchor="end" font-family="Source Sans 3, sans-serif" font-size="9" fill="#8c8694">90 days</text>
+          </svg>
+          <p class="app-caption">Preview with example numbers.</p>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 05 How it works -->
+  <section id="how" class="band">
+    <div class="wrap">
+      <div class="prose">
+        <p class="kicker">How it works</p>
+        <h2>Three moves, and you are looking ahead</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Connect QuickBooks</h3>
+          <p>Stellium reads your real books, so the view starts from what is in your accounts today and updates as your books do.</p>
+        </li>
+        <li>
+          <h3>See your next 90 days</h3>
+          <p>Cash on hand, what is coming in, what is going out, and the low point, laid out so you know whether you can pay yourself before you get there.</p>
+        </li>
+        <li>
+          <h3>Run the decision first</h3>
+          <p>The hire, the marketing spend, the client who may not re-enroll. Watch each one move your cash before it happens, and then decide with your eyes open.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 06 Who it is for and not for -->
+  <section id="for">
+    <div class="wrap">
+      <div class="prose">
+        <p class="kicker">Who it's for</p>
+        <h2>Built for the founder who is past survival and before scale</h2>
+      </div>
+      <div class="fit">
+        <div>
+          <h3>Stellium is for you if</h3>
+          <ul>
+            <li>You run a service business (coaching, consulting, an agency, a group practice) bringing in roughly $100K to $1M.</li>
+            <li>You use QuickBooks, you may have a bookkeeper, and you still feel like you are flying blind.</li>
+            <li>You want to pay yourself a real salary, make the next hire, or take a break, and you want to see it work on paper first.</li>
+          </ul>
+        </div>
+        <div class="not">
+          <h3>Stellium is the wrong fit if</h3>
+          <ul>
+            <li>You are running a hobby business, a side hustle, or a pre-revenue startup.</li>
+            <li>You need a fractional CFO or full strategic financial leadership, which Stellium does not replace.</li>
+            <li>Your books live somewhere other than QuickBooks today.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 About -->
+  <section id="about" class="band">
+    <div class="wrap about">
+      <img src="img/christine-walsh.jpg" alt="Christine Walsh, founder of Stellium" width="800" height="1000" loading="lazy">
+      <div class="prose">
+        <p class="kicker">About</p>
+        <h2>Meet Christine</h2>
+        <p>Christine Walsh spent 12 years on Wall Street, rising to SVP in global portfolio management, where she moved nine-figure institutional portfolios. Then in 2010, unemployed in a Colorado ski town and facing foreclosure, she sat there as the supposed money expert, afraid to look at her own bank account.</p>
+        <p>She built the model she had never been given, founded RebelRise Finance in 2016, and has spent the years since helping women founders build it for themselves. She wrote the #1 bestseller <em>Be the Queen of Your Money</em>, hosts the Made for Money podcast, and is a Master Certified Coach.</p>
+        <p>When she's out of the numbers, she and her husband Steve are somewhere on the road in their RV, four to five months a year, with four plants counting on them to come home.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 Why you -->
+  <section id="why">
+    <div class="wrap">
+      <div class="prose center">
+        <p class="kicker">Why I built it</p>
+        <h2 class="pull">I go first. I was the money expert who couldn't open her own bank account, and the tool that got me out is the one inside Stellium.</h2>
+      </div>
+      <div class="prose why-body">
+        <p>The method inside Stellium is the one I run weekly with my private clients. I built it to hold the numbers the way an accountant would, the forward view the way a financial advisor would, and what comes up in your body when you look, the way a coach would. The financial industry was never designed with women founders in mind, and I spent twenty years inside their businesses knowing there had to be a better way.</p>
+        <p>Numbers are neutral. Whatever yours turn out to be, seeing them hands you the chance to change them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 Proof -->
+  <section id="proof" class="band">
+    <div class="wrap">
+      <div class="prose center">
+        <p class="kicker">Proof</p>
+        <h2>Women who stopped guessing</h2>
+      </div>
+      <ul class="creds">
+        <li>12 years on Wall Street, SVP</li>
+        <li>#1 bestselling author</li>
+        <li>Host of Made for Money</li>
+        <li>Master Certified Coach</li>
+        <li>RebelRise Finance since 2016</li>
+      </ul>
+      <div class="quotes">
+        <figure>
+          <blockquote>“Christine — this was SO helpful!! I think you're right that looking at the bank accounts and not the cash flow is what threw me into a spin. We're actually in much better shape than I was fretting about.”</blockquote>
+          <figcaption><span class="initials" aria-hidden="true">AC</span><span><b>Ashley Cox</b>Founder, SproutHR</span></figcaption>
+        </figure>
+        <figure>
+          <blockquote>“Christine taught me her magical Forward Finance Cash Flow System… since then I've LOVED pairing this spreadsheet with my quickbooks session on a weekly basis.”</blockquote>
+          <figcaption><span class="initials" aria-hidden="true">JL</span><span><b>Jamie Livingston</b>Founder, Innerself Lightworks</span></figcaption>
+        </figure>
+        <figure>
+          <blockquote>“Profit and loss statements are less helpful compared to cash flow when it comes to assessing spending, expenses, projecting the financial health of a company and making spending decisions.”</blockquote>
+          <figcaption><span class="initials" aria-hidden="true">LS</span><span><b>Lindsay Stenovec</b>Nutrition Instincts</span></figcaption>
+        </figure>
+        <figure>
+          <blockquote>“We have a monthly finance meeting where we review cashflow, set revenue goals, etc. All stuff I would never look at if I didn't have her guiding me.”</blockquote>
+          <figcaption><span class="initials" aria-hidden="true">ME</span><span><b>Maryrose Ewing</b>The Ewing School</span></figcaption>
+        </figure>
+      </div>
+      <div class="stat">
+        <p class="stat-figure">$257K<span aria-hidden="true">→</span><span class="sr-only"> to </span>$818K</p>
+        <p>One service-based woman business owner, top-line revenue over three years, using the money management method inside Stellium.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 What happens when you join -->
+  <section id="next">
+    <div class="wrap">
+      <div class="prose">
+        <p class="kicker">What happens when you join</p>
+        <h2>Your invitation comes from me</h2>
+      </div>
+      <ol class="next prose">
+        <li><span aria-hidden="true">1</span><div><h3>A note from Christine</h3><p>You'll get an email confirming you're on the list, and then updates from me as Stellium takes shape.</p></div></li>
+        <li><span aria-hidden="true">2</span><div><h3>Early access in small groups</h3><p>Stellium opens first to the women I already work with, and then to the waitlist, a few founders at a time.</p></div></li>
+        <li><span aria-hidden="true">3</span><div><h3>Founding-member pricing</h3><p>Join now and you'll be offered founding-member pricing when your invitation arrives.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 11 Waitlist block -->
+  <section id="join" class="closer">
+    <div class="wrap center">
+      <h2>You were made for money</h2>
+      <p class="lede prose center">The industry that was supposed to help you never handed you the tool, or the choices, that let you lead your money. Your spot is here when you're ready to look.</p>
+
+      <form class="waitlist" action="/api/waitlist" method="post" novalidate>
+        <div class="waitlist-row">
+          <label for="email-join">Email address</label>
+          <input id="email-join" type="email" name="email" placeholder="you@yourbusiness.com" autocomplete="email" inputmode="email" required aria-describedby="error-join">
+          <button class="btn" type="submit">Join the waitlist</button>
+        </div>
+        <div class="hp" aria-hidden="true"><input type="text" name="company" tabindex="-1" autocomplete="off"></div>
+        <p class="form-error" id="error-join" role="alert"></p>
+        <p class="form-note">Founding members get first access and founding-member pricing.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- 12 Footer -->
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Stellium, a North Flow LLC company · Built by women, for women founders</span>
+    <nav aria-label="Footer">
+      <a href="#problem">The problem</a>
+      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+      <a href="#join">Join the waitlist</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Both waitlist forms POST the email to /api/waitlist (a Vercel function in api/waitlist.js).
+  // No keys live here. The endpoint holds any secrets server-side.
+  // The hidden "company" field is a bot trap. People never see it, so the endpoint can drop any submission that fills it.
+  function confirmation() {
+    var box = document.createElement("div");
+    box.className = "confirm";
+    box.setAttribute("role", "status");
+    box.setAttribute("tabindex", "-1");
+    box.innerHTML = "<strong>You're on the list.</strong><p>Watch your inbox for a note from Christine.</p>";
+    return box;
+  }
+
+  document.querySelectorAll("form.waitlist").forEach(function (form) {
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+      var input = form.elements.email;
+      var button = form.querySelector("button");
+      var error = form.querySelector(".form-error");
+      var email = input.value.trim();
+      error.textContent = "";
+      input.removeAttribute("aria-invalid");
+
+      if (!email || !input.checkValidity()) {
+        error.textContent = "Please enter a valid email address.";
+        input.setAttribute("aria-invalid", "true");
+        input.focus();
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = "Joining";
+      var controller = new AbortController();
+      var timer = setTimeout(function () { controller.abort(); }, 10000);
+
+      try {
+        var response = await fetch("/api/waitlist", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: email, company: form.elements.company.value }),
+          signal: controller.signal
+        });
+        if (!response.ok) throw new Error("Request failed: " + response.status);
+
+        // She's in, so swap both forms (hero and bottom) for the confirmation.
+        document.querySelectorAll("form.waitlist").forEach(function (f) {
+          var box = confirmation();
+          f.replaceWith(box);
+          if (f === form) box.focus();
+        });
+      } catch (err) {
+        button.disabled = false;
+        button.textContent = "Join the waitlist";
+        error.textContent = "That didn't go through. Please try again in a minute.";
+      } finally {
+        clearTimeout(timer);
+      }
+    });
+  });
+</script>
+</body>
+</html>
