@@ -171,9 +171,11 @@
 
   /* Hero stats strip */
   .stats { list-style: none; margin: 4rem 0 0; padding: 1.6rem 0 2.2rem; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem 1rem; }
-  .stats .proof { grid-column: 1 / -1; }
-  .stats .proof b { color: var(--pink-ink); }
-  @media (min-width: 760px) { .stats { grid-template-columns: 1.4fr 1fr 1fr; } .stats .proof { grid-column: auto; } }
+  .stats { grid-template-columns: repeat(3, 1fr); }
+  .hero-proof { display: flex; align-items: center; gap: .9rem; max-width: 32rem; margin: 0 0 1.4rem; padding: .85rem 1.1rem; background: rgba(255, 255, 255, .8); border: 1px solid var(--line); border-radius: 1rem; box-shadow: 0 10px 30px -18px rgba(42, 19, 48, .35); }
+  .hero-proof b { flex: none; font: 600 1.45rem/1.1 var(--serif); letter-spacing: -0.02em; color: var(--pink-ink); white-space: nowrap; }
+  .hero-proof > span { font-size: .88rem; line-height: 1.4; color: var(--ink-soft); }
+  @media (max-width: 420px) { .hero-proof { flex-direction: column; align-items: flex-start; gap: .25rem; } }
   .before { font: italic 400 1.2rem/1.5 var(--serif); color: var(--ink); max-width: 40ch; margin: 0 0 .6rem; }
   .stats li { font-size: .85rem; color: var(--ink-soft); line-height: 1.35; }
   .stats b { display: block; font: 500 clamp(1.5rem, 5vw, 2.2rem)/1.1 var(--serif); letter-spacing: -0.02em; color: var(--ink); margin-bottom: .25rem; }
@@ -302,6 +304,11 @@
           <p class="before">It's Sunday night, the bank app is open again, and you're doing Friday's payroll math in your head.</p>
           <p class="lede">Stellium reads your QuickBooks, so you know what you can spend this month and where the low point is before you get there.</p>
 
+          <div class="hero-proof">
+            <b>$257K <span aria-hidden="true">→</span><span class="sr-only">to</span> $818K</b>
+            <span>One service-based founder's revenue over three years, using the method inside Stellium.</span>
+          </div>
+
           <form class="waitlist" action="/api/waitlist" method="post" novalidate>
             <div class="waitlist-row">
               <label for="email-hero">Email address</label>
@@ -370,9 +377,9 @@
       </div>
 
       <ul class="stats">
-        <li class="proof"><b>$257K <span aria-hidden="true">→</span><span class="sr-only">to</span> $818K</b>one service-based founder's revenue over three years, using the method inside Stellium</li>
         <li><b>90 days</b>of your cash, laid out ahead of you</li>
         <li><b>QuickBooks</b>connects to the books you already keep</li>
+        <li><b>12 years</b>on Wall Street behind the method</li>
 
       </ul>
     </div>
