@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f6f0ec">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%2333233f'/%3E%3Ctext x='16' y='22.5' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='19' fill='%23ff7ad1'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23162b26'/%3E%3Ctext x='16' y='22.5' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='19' fill='%23ff8a5c'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -22,14 +22,14 @@
      Libre Baskerville headlines (Stellium's own brand font) with italic accents, Inter Tight body,
      neon pink on buttons and on the numbers that matter. */
   :root {
-    --night: #33233f;          /* deepest eggplant (a step darker than brand #4b3660): cards, closer, footer, giant type */
-    --night-2: #3d2a4b;
+    --night: #162b26;          /* brand deep forest: phone, closer, footer, giant type */
+    --night-2: #1f3a33;
     --night-line: rgba(255, 255, 255, .14);
-    --on-night: #f7f1ee;
-    --on-night-soft: #d9c8de;
-    --on-night-faint: #c6b3cc;
+    --on-night: #f6efe7;
+    --on-night-soft: #d6c3b8;
+    --on-night-faint: #b9c4bd;
 
-    --paper: #f6f0ec;          /* tint of brand sand #d6c3b8 */
+    --paper: #f5efe7;          /* tint of brand sand #d6c3b8 */
     --paper-2: #ede2dc;
     --card: #fffcfa;
     --ink: #162b26;            /* brand deep forest */
@@ -37,9 +37,9 @@
     --ink-faint: #55665f;
     --line: #e0d2c9;
 
-    --neon: #ff7ad1;           /* neon orchid pink: buttons and numbers on eggplant only (6.4:1 with forest text, 4.5:1 on eggplant); never as text on light paper */
+    --neon: #ff8a5c;           /* neon coral: buttons, and numbers on forest (6.4:1); never as text on light paper */
     --rose: #d0adb1;           /* brand dusty rose: glows and soft details */
-    --neon-press: #ff8fd9;
+    --neon-press: #ff9d76;
     --pink-ink: #7a5a32;       /* deeper brand bronze for accent words on light paper (passes contrast) */
     --teal: #25464f;           /* brand deep teal */
     --bronze: #a38159;         /* brand bronze, decorative only */
@@ -126,7 +126,7 @@
   .confirm p { margin: 0; color: var(--ink-soft); }
 
   .dark { background: var(--night); color: var(--on-night); position: relative; overflow: hidden; }
-  .dark::before { content: ""; position: absolute; inset: -30% -15% auto auto; width: 60rem; height: 45rem; pointer-events: none; background: radial-gradient(closest-side, rgba(208, 173, 177, .22), rgba(208, 173, 177, 0) 70%); }
+  .dark::before { content: ""; position: absolute; inset: -30% -15% auto auto; width: 60rem; height: 45rem; pointer-events: none; background: radial-gradient(closest-side, rgba(255, 138, 92, .16), rgba(255, 138, 92, 0) 70%); }
   .dark > * { position: relative; z-index: 1; }
   .dark .waitlist input[type="email"] { border-color: var(--night-line); background: rgba(255, 255, 255, .08); color: var(--on-night); box-shadow: none; }
   .dark .waitlist input[type="email"]::placeholder { color: var(--on-night-faint); }
@@ -139,7 +139,7 @@
 
   /* 02 Hero: light, with a soft blush and lilac glow */
   .hero { position: relative; overflow: hidden; padding: 3rem 0 0; background: var(--paper); }
-  .hero::before { content: ""; position: absolute; inset: -25% -20% auto auto; width: 62rem; height: 48rem; pointer-events: none; background: radial-gradient(closest-side, rgba(208, 173, 177, .6), rgba(208, 173, 177, 0) 70%); }
+  .hero::before { content: ""; position: absolute; inset: -25% -20% auto auto; width: 62rem; height: 48rem; pointer-events: none; background: radial-gradient(closest-side, rgba(163, 129, 89, .28), rgba(163, 129, 89, 0) 70%); }
   .hero::after { content: ""; position: absolute; inset: auto auto -25% -25%; width: 55rem; height: 42rem; pointer-events: none; background: radial-gradient(closest-side, rgba(214, 195, 184, .75), rgba(214, 195, 184, 0) 70%); }
   .hero > * { position: relative; z-index: 1; }
   @media (min-width: 960px) { .hero { padding-top: 5rem; } }
@@ -158,7 +158,7 @@
 
   /* Calculator card: the one dark element in the hero */
   .calc {
-    background: linear-gradient(160deg, #3d2a4b, #33233f); color: var(--on-night);   /* deep eggplant, a step darker than brand #4b3660 */
+    background: linear-gradient(160deg, #1f3a33, #162b26); color: var(--on-night);
     border-radius: 1.6rem; padding: 1.4rem;
     box-shadow: 0 40px 80px -30px rgba(22, 43, 38, .55), inset 0 1px 0 rgba(255, 255, 255, .08);
   }
@@ -224,7 +224,7 @@
   .trust h3 { color: #fff; margin: .25rem 0 .4rem; }
   .trust p { margin: 0 0 .7rem; max-width: var(--measure); color: var(--on-night-soft); }
   .trust p:last-child { margin-bottom: 0; }
-  .trust-icon { width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; background: rgba(208, 173, 177, .16); color: var(--neon); }
+  .trust-icon { width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 138, 92, .16); color: var(--neon); }
 
   /* 06 For / not for */
   .fit { display: grid; gap: 1.1rem; margin-top: 2.5rem; }
@@ -288,7 +288,7 @@
   /* ===== Collage hero (inspired by layered fintech layouts) ===== */
   .collage {
     position: relative; overflow: hidden; padding: 2.5rem 0 0;
-    background-color: #e9d6d6;
+    background-color: #e9ddd0;
     background-image:
       radial-gradient(circle at 78% 18%, rgba(255, 255, 255, .55), rgba(255, 255, 255, 0) 45%),
       radial-gradient(circle at 15% 85%, rgba(214, 195, 184, .7), rgba(214, 195, 184, 0) 50%),
@@ -302,9 +302,9 @@
   .t-b { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.03em; }
   .collage-category { margin: 0; padding: .45rem 1rem; border-radius: 999px; background: rgba(255, 255, 255, .6); font: 500 .95rem/1.35 var(--sans); color: var(--ink); text-align: center; }
 
-  .phone { width: min(330px, 100%); padding: 10px; border-radius: 48px; background: #1c1420; box-shadow: 0 50px 90px -35px rgba(51, 35, 63, .7), 0 0 0 1px rgba(255, 255, 255, .06) inset; }
-  .phone-screen { position: relative; border-radius: 38px; overflow: hidden; background: linear-gradient(170deg, #3d2a4b, #33233f); }
-  .phone-notch { width: 96px; height: 26px; margin: 10px auto 0; border-radius: 999px; background: #0d0a10; }
+  .phone { width: min(330px, 100%); padding: 10px; border-radius: 48px; background: #0f1f1b; box-shadow: 0 50px 90px -35px rgba(22, 43, 38, .7), 0 0 0 1px rgba(255, 255, 255, .06) inset; }
+  .phone-screen { position: relative; border-radius: 38px; overflow: hidden; background: linear-gradient(170deg, #1f3a33, #162b26); }
+  .phone-notch { width: 96px; height: 26px; margin: 10px auto 0; border-radius: 999px; background: #08120f; }
   .phone .calc { background: none; box-shadow: none; border-radius: 0; padding: .9rem 1rem 1.2rem; }
   .phone .calc-head { margin-bottom: .8rem; }
   .phone .calc-head h2 { font: 600 1.15rem/1.2 var(--sans); letter-spacing: -0.01em; }
@@ -317,7 +317,7 @@
   .phone .calc-result { margin-top: .9rem; padding-top: .9rem; }
   .phone .result-figure { font-size: 2.3rem; }
 
-  .float { background: rgba(255, 255, 255, .92); border-radius: 1.1rem; box-shadow: 0 24px 50px -28px rgba(51, 35, 63, .55); padding: 1.1rem 1.2rem; width: min(330px, 100%); }
+  .float { background: rgba(255, 255, 255, .92); border-radius: 1.1rem; box-shadow: 0 24px 50px -28px rgba(22, 43, 38, .55); padding: 1.1rem 1.2rem; width: min(330px, 100%); }
   .float-proof b { display: block; font: 400 2.1rem/1.1 var(--sans); letter-spacing: -0.04em; color: var(--night); margin-bottom: .35rem; white-space: nowrap; }
   .float-proof span:last-child { font-size: .88rem; line-height: 1.4; color: #44544f; }
   .float-founder { display: flex; align-items: center; gap: .8rem; }
@@ -348,7 +348,7 @@
   .band-panel { position: relative; padding: 3.5rem 1.5rem 3rem; border-radius: 1.6rem 1.6rem 0 0; }
   .band-panel.dark { background: var(--teal); }
   .band-panel.dark { overflow: visible; }
-  .band-panel.dark::before { inset: 0; width: auto; height: auto; border-radius: inherit; background: radial-gradient(circle at 85% 0%, rgba(208, 173, 177, .28), rgba(208, 173, 177, 0) 55%); }
+  .band-panel.dark::before { inset: 0; width: auto; height: auto; border-radius: inherit; background: radial-gradient(circle at 85% 0%, rgba(255, 138, 92, .2), rgba(255, 138, 92, 0) 55%); }
   .band-panel .before { color: #fff; }
   .band-panel .lede { color: #cfdcdc; max-width: 46ch; margin: 0 0 1.6rem; }
   @media (min-width: 980px) {
@@ -359,10 +359,10 @@
     .band-panel { padding: 3.8rem 3rem 3rem; }
   }
 
-  .badge { position: absolute; top: -3.4rem; left: 50%; transform: translateX(-50%); width: 6.8rem; height: 6.8rem; border-radius: 50%; background: radial-gradient(circle, #d9b3c4, #b98aa6); display: grid; place-items: center; text-decoration: none; box-shadow: 0 16px 40px -18px rgba(51, 35, 63, .8); }
+  .badge { position: absolute; top: -3.4rem; left: 50%; transform: translateX(-50%); width: 6.8rem; height: 6.8rem; border-radius: 50%; background: radial-gradient(circle, #e6d3bd, #c9a77f); display: grid; place-items: center; text-decoration: none; box-shadow: 0 16px 40px -18px rgba(22, 43, 38, .8); }
   .badge svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: badge-spin 18s linear infinite; }
-  .badge text { font: 600 9.5px/1 var(--sans); letter-spacing: .14em; fill: #33233f; }
-  .badge-core { width: 2.6rem; height: 2.6rem; border-radius: 50%; background: #33233f; color: var(--neon); display: grid; place-items: center; font: 600 1.2rem/1 var(--sans); }
+  .badge text { font: 600 9.5px/1 var(--sans); letter-spacing: .14em; fill: #162b26; }
+  .badge-core { width: 2.6rem; height: 2.6rem; border-radius: 50%; background: #162b26; color: var(--neon); display: grid; place-items: center; font: 600 1.2rem/1 var(--sans); }
   @media (min-width: 980px) { .badge { top: -3.4rem; left: auto; right: 2.5rem; transform: none; } }
   @keyframes badge-spin { to { transform: rotate(360deg); } }
   @media (prefers-reduced-motion: reduce) { .badge svg { animation: none; } }
@@ -389,7 +389,7 @@
   @media (min-width: 860px) { .name-grid { grid-template-columns: minmax(0, 20rem) 1fr; gap: 4.5rem; } }
   .cluster { width: min(16rem, 70%); height: auto; margin: 0 auto; }
   .name-section h2 { color: #fff; }
-  .name-section .kicker { color: var(--rose); }
+  .name-section .kicker { color: #d6c3b8; }
   .name-section p { color: var(--on-night-soft); }
   .name-close { font: italic 400 1.5rem/1.4 var(--serif); color: #fff !important; margin-top: 1.4rem; }
 
@@ -474,14 +474,14 @@
               <svg class="calc-chart" id="c-chart" viewBox="0 0 320 110" role="img" aria-label="Your cash over the next 90 days">
                 <defs>
                   <linearGradient id="c-fill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#ff7ad1" stop-opacity=".3"/>
-                    <stop offset="1" stop-color="#ff7ad1" stop-opacity="0"/>
+                    <stop offset="0" stop-color="#ff8a5c" stop-opacity=".3"/>
+                    <stop offset="1" stop-color="#ff8a5c" stop-opacity="0"/>
                   </linearGradient>
                 </defs>
                 <line id="c-zero" x1="0" x2="320" y1="92" y2="92" stroke="rgba(255,255,255,.18)" stroke-dasharray="3 4"/>
                 <path id="c-area" fill="url(#c-fill)"/>
-                <path id="c-line" fill="none" stroke="#ff7ad1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                <g font-family="Inter Tight, sans-serif" font-size="11" fill="#c6b3cc">
+                <path id="c-line" fill="none" stroke="#ff8a5c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <g font-family="Inter Tight, sans-serif" font-size="11" fill="#b9c4bd">
                   <text x="4" y="107">Today</text>
                   <text x="316" y="107" text-anchor="end">90 days</text>
                 </g>
@@ -678,22 +678,22 @@
   <section id="name" class="name-section dark">
     <div class="wrap name-grid">
       <svg class="cluster" viewBox="0 0 240 240" role="img" aria-label="Three bright stars gathered close together, with smaller stars around them">
-        <g fill="#ff7ad1">
+        <g fill="#ff8a5c">
           <circle cx="104" cy="98" r="9"/>
           <circle cx="142" cy="112" r="7"/>
           <circle cx="116" cy="140" r="8"/>
         </g>
-        <g stroke="#ff7ad1" stroke-opacity=".35" stroke-width="1.2">
+        <g stroke="#ff8a5c" stroke-opacity=".35" stroke-width="1.2">
           <line x1="104" y1="98" x2="142" y2="112"/>
           <line x1="142" y1="112" x2="116" y2="140"/>
           <line x1="116" y1="140" x2="104" y2="98"/>
         </g>
-        <g fill="#d0adb1" fill-opacity=".7">
+        <g fill="#d6c3b8" fill-opacity=".7">
           <circle cx="40" cy="52" r="2"/><circle cx="196" cy="40" r="1.6"/><circle cx="210" cy="170" r="2.2"/>
           <circle cx="58" cy="190" r="1.8"/><circle cx="172" cy="214" r="1.4"/><circle cx="24" cy="130" r="1.4"/>
           <circle cx="86" cy="24" r="1.2"/><circle cx="226" cy="104" r="1.3"/>
         </g>
-        <g fill="none" stroke="#ff7ad1" stroke-opacity=".18"><circle cx="120" cy="116" r="52"/><circle cx="120" cy="116" r="84"/></g>
+        <g fill="none" stroke="#ff8a5c" stroke-opacity=".18"><circle cx="120" cy="116" r="52"/><circle cx="120" cy="116" r="84"/></g>
       </svg>
       <div class="prose">
         <p class="kicker">Why the name</p>
