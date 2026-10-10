@@ -12,8 +12,8 @@
 <meta property="og:image" content="https://stelliumwaitlist.vercel.app/img/christine-walsh.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#fcf8f5">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%232a1330'/%3E%3Ctext x='16' y='22.5' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='19' fill='%23ff4fa8'%3ES%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#f6f0ec">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%234b3660'/%3E%3Ctext x='16' y='22.5' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='19' fill='%23d0adb1'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -22,24 +22,26 @@
      Libre Baskerville headlines (Stellium's own brand font) with italic accents, Inter Tight body,
      neon pink on buttons and on the numbers that matter. */
   :root {
-    --night: #2a1330;          /* aubergine: product card, closer, footer */
-    --night-2: #3a1c42;
+    --night: #4b3660;          /* brand eggplant: product card, closer, footer */
+    --night-2: #5a4372;
     --night-line: rgba(255, 255, 255, .14);
-    --on-night: #fbf3f7;
-    --on-night-soft: #e3cfdc;
-    --on-night-faint: #c3a9bb;
+    --on-night: #f7f1ee;
+    --on-night-soft: #d9c8de;
+    --on-night-faint: #c6b3cc;
 
-    --paper: #fcf8f5;
-    --paper-2: #f8ede9;
-    --card: #ffffff;
-    --ink: #2a1330;
-    --ink-soft: #594660;
-    --ink-faint: #6b5870;
-    --line: #ecdcdf;
+    --paper: #f6f0ec;          /* tint of brand sand #d6c3b8 */
+    --paper-2: #ede2dc;
+    --card: #fffcfa;
+    --ink: #162b26;            /* brand deep forest */
+    --ink-soft: #3e524c;
+    --ink-faint: #55665f;
+    --line: #e0d2c9;
 
-    --neon: #ff4fa8;           /* neon pink: buttons, and numbers on aubergine */
-    --neon-press: #ff3399;
-    --pink-ink: #c4166c;       /* deeper pink for accent words on light paper (passes contrast) */
+    --neon: #d0adb1;           /* brand dusty rose: buttons, and numbers on eggplant */
+    --neon-press: #c49aa0;
+    --pink-ink: #7a5a32;       /* deeper brand bronze for accent words on light paper (passes contrast) */
+    --teal: #25464f;           /* brand deep teal */
+    --bronze: #a38159;         /* brand bronze, decorative only */
 
     --measure: 65ch;
     --sans: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -52,6 +54,8 @@
   a { color: inherit; }
   :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
   ::selection { background: var(--neon); color: var(--ink); }
+  .hero h1 em.accent, .closer h2 em.accent { color: inherit; }
+  .hero h1 em.accent { color: var(--pink-ink); }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   .wrap { width: 100%; max-width: 74rem; margin: 0 auto; padding: 0 1rem; }
@@ -80,13 +84,13 @@
     font: 600 1rem/1 var(--sans); text-decoration: none; cursor: pointer; white-space: nowrap;
     transition: background .15s ease, transform .15s ease, box-shadow .2s ease;
   }
-  .btn:hover { background: var(--neon-press); box-shadow: 0 8px 28px -6px rgba(255, 79, 168, .55); }
+  .btn:hover { background: var(--neon-press); box-shadow: 0 8px 28px -6px rgba(208, 173, 177, .55); }
   .btn:active { transform: translateY(1px); }
   .btn[disabled] { opacity: .6; cursor: progress; }
   .btn-sm { min-height: 2.5rem; padding: 0 1.1rem; font-size: .9rem; }
 
   /* 01 Header */
-  .site-header { position: sticky; top: 0; z-index: 20; background: rgba(252, 248, 245, .85); backdrop-filter: saturate(1.3) blur(12px); border-bottom: 1px solid var(--line); }
+  .site-header { position: sticky; top: 0; z-index: 20; background: rgba(246, 240, 236, .88); backdrop-filter: saturate(1.3) blur(12px); border-bottom: 1px solid var(--line); }
   .site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 0 1rem; min-height: 4rem; }
   .brand { display: flex; align-items: center; gap: .55rem; text-decoration: none; margin-right: auto; }
   .brand-mark { width: 2rem; height: 2rem; border-radius: 50%; background: var(--night); color: var(--neon); display: grid; place-items: center; font: italic 400 1.15rem/1 var(--serif); }
@@ -101,7 +105,7 @@
   .waitlist { width: 100%; max-width: 32rem; }
   .waitlist-row { display: flex; flex-direction: column; gap: .6rem; }
   .waitlist label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .waitlist input[type="email"] { width: 100%; min-height: 3.1rem; padding: 0 1.2rem; border: 1px solid var(--line); border-radius: 999px; background: var(--card); font: 400 1rem/1 var(--sans); color: var(--ink); box-shadow: 0 6px 20px -12px rgba(42, 19, 48, .25); }
+  .waitlist input[type="email"] { width: 100%; min-height: 3.1rem; padding: 0 1.2rem; border: 1px solid var(--line); border-radius: 999px; background: var(--card); font: 400 1rem/1 var(--sans); color: var(--ink); box-shadow: 0 6px 20px -12px rgba(22, 43, 38, .25); }
   .waitlist input[type="email"]::placeholder { color: var(--ink-faint); }
   .waitlist input[type="email"]:focus { outline: 2px solid var(--neon); outline-offset: 1px; border-color: transparent; }
   @media (min-width: 520px) { .waitlist-row { flex-direction: row; } .waitlist-row input { flex: 1; } }
@@ -115,7 +119,7 @@
   .confirm p { margin: 0; color: var(--ink-soft); }
 
   .dark { background: var(--night); color: var(--on-night); position: relative; overflow: hidden; }
-  .dark::before { content: ""; position: absolute; inset: -30% -15% auto auto; width: 60rem; height: 45rem; pointer-events: none; background: radial-gradient(closest-side, rgba(255, 79, 168, .22), rgba(255, 79, 168, 0) 70%); }
+  .dark::before { content: ""; position: absolute; inset: -30% -15% auto auto; width: 60rem; height: 45rem; pointer-events: none; background: radial-gradient(closest-side, rgba(208, 173, 177, .22), rgba(208, 173, 177, 0) 70%); }
   .dark > * { position: relative; z-index: 1; }
   .dark .waitlist input[type="email"] { border-color: var(--night-line); background: rgba(255, 255, 255, .08); color: var(--on-night); box-shadow: none; }
   .dark .waitlist input[type="email"]::placeholder { color: var(--on-night-faint); }
@@ -128,8 +132,8 @@
 
   /* 02 Hero: light, with a soft blush and lilac glow */
   .hero { position: relative; overflow: hidden; padding: 3rem 0 0; background: var(--paper); }
-  .hero::before { content: ""; position: absolute; inset: -25% -20% auto auto; width: 62rem; height: 48rem; pointer-events: none; background: radial-gradient(closest-side, rgba(255, 186, 214, .75), rgba(255, 186, 214, 0) 70%); }
-  .hero::after { content: ""; position: absolute; inset: auto auto -25% -25%; width: 55rem; height: 42rem; pointer-events: none; background: radial-gradient(closest-side, rgba(255, 214, 232, .7), rgba(255, 214, 232, 0) 70%); }
+  .hero::before { content: ""; position: absolute; inset: -25% -20% auto auto; width: 62rem; height: 48rem; pointer-events: none; background: radial-gradient(closest-side, rgba(208, 173, 177, .6), rgba(208, 173, 177, 0) 70%); }
+  .hero::after { content: ""; position: absolute; inset: auto auto -25% -25%; width: 55rem; height: 42rem; pointer-events: none; background: radial-gradient(closest-side, rgba(214, 195, 184, .75), rgba(214, 195, 184, 0) 70%); }
   .hero > * { position: relative; z-index: 1; }
   @media (min-width: 960px) { .hero { padding-top: 5rem; } }
   .hero-grid { display: grid; gap: 3rem; align-items: center; }
@@ -143,13 +147,13 @@
   .hero h1 { max-width: 14ch; }
   .hero .lede { max-width: 40ch; margin: 0 0 2rem; }
   .hero-sig { display: flex; align-items: center; gap: .75rem; margin-top: 2rem; color: var(--ink-soft); font-size: .92rem; line-height: 1.45; }
-  .hero-sig img { flex: none; width: 3rem; height: 3rem; border-radius: 50%; object-fit: cover; border: 2px solid #fff; box-shadow: 0 4px 14px -6px rgba(42, 19, 48, .4); }
+  .hero-sig img { flex: none; width: 3rem; height: 3rem; border-radius: 50%; object-fit: cover; border: 2px solid #fff; box-shadow: 0 4px 14px -6px rgba(22, 43, 38, .4); }
 
   /* Calculator card: the one dark element in the hero */
   .calc {
     background: linear-gradient(160deg, var(--night-2), var(--night)); color: var(--on-night);
     border-radius: 1.6rem; padding: 1.4rem;
-    box-shadow: 0 40px 80px -30px rgba(42, 19, 48, .55), inset 0 1px 0 rgba(255, 255, 255, .08);
+    box-shadow: 0 40px 80px -30px rgba(22, 43, 38, .55), inset 0 1px 0 rgba(255, 255, 255, .08);
   }
   @media (min-width: 640px) { .calc { padding: 1.8rem; } }
   .calc-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
@@ -172,7 +176,7 @@
   /* Hero stats strip */
   .stats { list-style: none; margin: 4rem 0 0; padding: 1.6rem 0 2.2rem; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem 1rem; }
   .stats { grid-template-columns: repeat(3, 1fr); }
-  .hero-proof { display: flex; align-items: center; gap: .9rem; max-width: 32rem; margin: 0 0 1.4rem; padding: .85rem 1.1rem; background: rgba(255, 255, 255, .8); border: 1px solid var(--line); border-radius: 1rem; box-shadow: 0 10px 30px -18px rgba(42, 19, 48, .35); }
+  .hero-proof { display: flex; align-items: center; gap: .9rem; max-width: 32rem; margin: 0 0 1.4rem; padding: .85rem 1.1rem; background: rgba(255, 255, 255, .8); border: 1px solid var(--line); border-radius: 1rem; box-shadow: 0 10px 30px -18px rgba(22, 43, 38, .35); }
   .hero-proof b { flex: none; font: 600 1.45rem/1.1 var(--serif); letter-spacing: -0.02em; color: var(--pink-ink); white-space: nowrap; }
   .hero-proof > span { font-size: .88rem; line-height: 1.4; color: var(--ink-soft); }
   @media (max-width: 420px) { .hero-proof { flex-direction: column; align-items: flex-start; gap: .25rem; } }
@@ -188,7 +192,7 @@
   /* 04 What it is */
   .split { display: grid; gap: 2.5rem; align-items: center; }
   @media (min-width: 900px) { .split { grid-template-columns: 1fr 1fr; gap: 4.5rem; } }
-  .app { background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 1.4rem; overflow: hidden; box-shadow: 0 40px 70px -40px rgba(42, 19, 48, .45); }
+  .app { background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 1.4rem; overflow: hidden; box-shadow: 0 40px 70px -40px rgba(22, 43, 38, .45); }
   .app-bar { display: flex; align-items: center; gap: .4rem; padding: .8rem 1.1rem; border-bottom: 1px solid var(--line); background: var(--paper); }
   .app-bar i { width: .55rem; height: .55rem; border-radius: 50%; background: var(--line); }
   .app-bar span { margin-left: .6rem; font-size: .8rem; color: var(--ink-faint); }
@@ -206,18 +210,18 @@
   .steps li { counter-increment: step; padding: 1.7rem; background: var(--card); border: 1px solid var(--line); border-radius: 1.2rem; }
   .steps li::before { content: "0" counter(step); display: inline-grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--night); color: var(--neon); font: 600 .95rem/1 var(--sans); margin-bottom: 1.2rem; }
   .steps p { margin: 0; color: var(--ink-soft); }
-  .trust { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start; margin-top: 1.1rem; padding: 1.6rem 1.7rem; background: var(--night); color: var(--on-night); border-radius: 1.2rem; }
+  .trust { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start; margin-top: 1.1rem; padding: 1.6rem 1.7rem; background: var(--teal); color: var(--on-night); border-radius: 1.2rem; }
   .trust h3 { color: #fff; margin: .25rem 0 .4rem; }
   .trust p { margin: 0 0 .7rem; max-width: var(--measure); color: var(--on-night-soft); }
   .trust p:last-child { margin-bottom: 0; }
-  .trust-icon { width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 79, 168, .16); color: var(--neon); }
+  .trust-icon { width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; background: rgba(208, 173, 177, .16); color: var(--neon); }
 
   /* 06 For / not for */
   .fit { display: grid; gap: 1.1rem; margin-top: 2.5rem; }
   @media (min-width: 860px) { .fit { grid-template-columns: 1fr 1fr; } }
   .fit > div { padding: 1.8rem; border-radius: 1.2rem; }
-  .fit .yes { background: var(--card); border: 1px solid var(--line); box-shadow: 0 30px 60px -45px rgba(42, 19, 48, .5); }
-  .fit .no { border: 1px dashed #d6c2c8; }
+  .fit .yes { background: var(--card); border: 1px solid var(--line); box-shadow: 0 30px 60px -45px rgba(22, 43, 38, .5); }
+  .fit .no { border: 1px dashed #c8b3a6; }
   .fit ul { margin: 0; padding-left: 1.1rem; }
   .fit li { margin-bottom: .8rem; }
   .fit li:last-child { margin-bottom: 0; }
@@ -357,14 +361,14 @@
             <svg class="calc-chart" id="c-chart" viewBox="0 0 320 110" role="img" aria-label="Your cash over the next 90 days">
               <defs>
                 <linearGradient id="c-fill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#ff4fa8" stop-opacity=".28"/>
-                  <stop offset="1" stop-color="#ff4fa8" stop-opacity="0"/>
+                  <stop offset="0" stop-color="#d0adb1" stop-opacity=".28"/>
+                  <stop offset="1" stop-color="#d0adb1" stop-opacity="0"/>
                 </linearGradient>
               </defs>
               <line id="c-zero" x1="0" x2="320" y1="92" y2="92" stroke="rgba(255,255,255,.18)" stroke-dasharray="3 4"/>
               <path id="c-area" fill="url(#c-fill)"/>
-              <path id="c-line" fill="none" stroke="#ff4fa8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <g font-family="Inter Tight, sans-serif" font-size="9" fill="#c3a9bb">
+              <path id="c-line" fill="none" stroke="#d0adb1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <g font-family="Inter Tight, sans-serif" font-size="9" fill="#c6b3cc">
                 <text x="4" y="107">Today</text>
                 <text x="107" y="107" text-anchor="middle">30 days</text>
                 <text x="213" y="107" text-anchor="middle">60 days</text>
