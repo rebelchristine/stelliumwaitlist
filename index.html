@@ -382,6 +382,16 @@
     .win:nth-child(2) { right: 1.5rem; top: 22.8rem; transform: rotate(2deg); }
     .win:nth-child(3) { left: 3rem; top: 26.6rem; transform: rotate(1.5deg); }
   }
+
+  /* Why the name */
+  .name-section { padding: 5rem 0; }
+  .name-grid { display: grid; gap: 2rem; align-items: center; }
+  @media (min-width: 860px) { .name-grid { grid-template-columns: minmax(0, 20rem) 1fr; gap: 4.5rem; } }
+  .cluster { width: min(16rem, 70%); height: auto; margin: 0 auto; }
+  .name-section h2 { color: #fff; }
+  .name-section .kicker { color: var(--rose); }
+  .name-section p { color: var(--on-night-soft); }
+  .name-close { font: italic 400 1.5rem/1.4 var(--serif); color: #fff !important; margin-top: 1.4rem; }
 </style>
 </head>
 <body>
@@ -647,6 +657,37 @@
       <div class="prose why-body">
         <p>I built this to hold the numbers the way an accountant would, the forward view the way a financial advisor would, and what comes up in your body when you look, the way a coach would. The financial industry was never designed with women founders in mind, and I spent twenty years inside their businesses knowing there had to be a better way.</p>
         <p>What I love about Stellium? Whatever the numbers turn out to be, seeing them hands you the chance to change them, and that is where your choice and your power return back to you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08b Why the name -->
+  <section id="name" class="name-section dark">
+    <div class="wrap name-grid">
+      <svg class="cluster" viewBox="0 0 240 240" role="img" aria-label="Three bright stars gathered close together, with smaller stars around them">
+        <g fill="#ff7ad1">
+          <circle cx="104" cy="98" r="9"/>
+          <circle cx="142" cy="112" r="7"/>
+          <circle cx="116" cy="140" r="8"/>
+        </g>
+        <g stroke="#ff7ad1" stroke-opacity=".35" stroke-width="1.2">
+          <line x1="104" y1="98" x2="142" y2="112"/>
+          <line x1="142" y1="112" x2="116" y2="140"/>
+          <line x1="116" y1="140" x2="104" y2="98"/>
+        </g>
+        <g fill="#d0adb1" fill-opacity=".7">
+          <circle cx="40" cy="52" r="2"/><circle cx="196" cy="40" r="1.6"/><circle cx="210" cy="170" r="2.2"/>
+          <circle cx="58" cy="190" r="1.8"/><circle cx="172" cy="214" r="1.4"/><circle cx="24" cy="130" r="1.4"/>
+          <circle cx="86" cy="24" r="1.2"/><circle cx="226" cy="104" r="1.3"/>
+        </g>
+        <g fill="none" stroke="#ff7ad1" stroke-opacity=".18"><circle cx="120" cy="116" r="52"/><circle cx="120" cy="116" r="84"/></g>
+      </svg>
+      <div class="prose">
+        <p class="kicker">Why the name</p>
+        <h2>Why I named it <em class="accent">Stellium</em></h2>
+        <p>A stellium is what astrologers call it when three or more planets gather in one place. Everything concentrated, in one house.</p>
+        <p>Three is how I have always worked. Money, time, and energy, the three currencies a founder actually spends. Grounded logic, emotional intelligence, and a woman’s intuition, the three lenses every decision gets checked against. Women, power, and money, the three things I have spent twenty-five years putting back in the same room.</p>
+        <p class="name-close">Stellium is where they gather.</p>
       </div>
     </div>
   </section>
