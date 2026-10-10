@@ -415,6 +415,37 @@
   .calc-tag, .app-label, .result-label, .stats li, .band-stat span, .win span:not(.win-arrow) { font-family: var(--mono); letter-spacing: .02em; }
   .float-proof b, .win b, .band-stat b, .stat-figure, .app-total { font-family: var(--serif); letter-spacing: -0.02em; }
   .btn { letter-spacing: .02em; }
+
+  /* Sister, light: no black slabs. Dark areas flip to RebelRise blush; black stays in the type. */
+  .dark, .site-footer, .stat, .trust, .phone, .calc, .collage-band, .steps, .next {
+    --night: #f3e4dc;
+    --night-2: #f8eee9;
+    --night-line: rgba(26, 27, 29, .12);
+    --on-night: #1a1b1d;
+    --on-night-soft: #46474b;
+    --on-night-faint: #5e5e62;
+    --teal: #f3e4dc;
+  }
+  .phone { background: #ffffff; box-shadow: 0 50px 90px -40px rgba(26, 27, 29, .35), 0 0 0 1px rgba(26, 27, 29, .08); }
+  .phone-screen { background: linear-gradient(170deg, #fdf8f5, #f6e9e2); }
+  .phone-notch { background: #1a1b1d; }
+  .field { background: #ffffff; }
+  .money, .money input, .calc-head h2, .closer h2, .name-section h2, .trust h3, .band-panel .before, .name-close { color: #1a1b1d !important; }
+  .money input { border-bottom-color: #5e5e62; }
+  .result-figure, .stat-figure, .dark em.accent, .steps li::before, .next li span { color: #1a1b1d; }
+  .steps li::before, .next li span { background: #f3e4dc; }
+  .band-panel .lede { color: #46474b; }
+  .name-section .kicker { color: #5e5e62; }
+  .dark::before { background: radial-gradient(closest-side, rgba(255, 63, 164, .12), rgba(255, 63, 164, 0) 70%); }
+  .dark .waitlist input[type="email"] { background: #ffffff; border-color: var(--line); color: #1a1b1d; }
+  .dark .waitlist input[type="email"]::placeholder { color: #5e5e62; }
+  .dark .waitlist input[type="email"]:focus { outline-color: #1a1b1d; }
+  .site-footer { border-top: 1px solid var(--line); }
+  .site-footer a { color: #46474b; }
+  .site-footer a:hover { color: #1a1b1d; }
+  .stat-figure span { color: #5e5e62; }
+  .band-stat b { color: #1a1b1d; }
+  .band-stat span { color: #46474b; }
 </style>
 </head>
 <body>
@@ -487,10 +518,10 @@
                     <stop offset="1" stop-color="#ff3fa4" stop-opacity="0"/>
                   </linearGradient>
                 </defs>
-                <line id="c-zero" x1="0" x2="320" y1="92" y2="92" stroke="rgba(255,255,255,.18)" stroke-dasharray="3 4"/>
+                <line id="c-zero" x1="0" x2="320" y1="92" y2="92" stroke="rgba(26,27,29,.2)" stroke-dasharray="3 4"/>
                 <path id="c-area" fill="url(#c-fill)"/>
                 <path id="c-line" fill="none" stroke="#ff3fa4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                <g font-family="Inter Tight, sans-serif" font-size="11" fill="#c9c9cc">
+                <g font-family="Inter Tight, sans-serif" font-size="11" fill="#5e5e62">
                   <text x="4" y="107">Today</text>
                   <text x="316" y="107" text-anchor="end">90 days</text>
                 </g>
