@@ -402,6 +402,10 @@
   .win:nth-child(2) { --d: .95s; }
   .win:nth-child(3) { --d: 1.25s; }
   @media (prefers-reduced-motion: reduce) { .float-proof, .win { animation: none; } }
+
+  .wins-note { order: 3; width: 100%; margin: -.6rem 0 0; font-size: .8rem; color: #44544f; }
+  @media (min-width: 980px) { .wins-note { position: absolute; z-index: 3; left: 3rem; top: 33.3rem; width: 15rem; margin: 0; } }
+  .footer-consent { font-size: .82rem; color: var(--on-night-faint); }
 </style>
 </head>
 <body>
@@ -498,6 +502,7 @@
         <li class="win"><b><span class="win-arrow" aria-hidden="true">↑</span>240%</b><span>profit in 2 years</span><small>Multi-6-figure digital agency</small></li>
         <li class="win"><b><span class="win-arrow" aria-hidden="true">↑</span>130%</b><span>profit in 3 years</span><small>7-figure project management firm</small></li>
       </ul>
+      <p class="wins-note">Client profit change, using the method inside Stellium.</p>
 
       <div class="float float-founder">
         <img src="img/christine-walsh.jpg" alt="" width="56" height="56">
@@ -777,7 +782,7 @@
 <!-- 12 Footer -->
 <footer class="site-footer">
   <div class="wrap">
-    <span>© 2026 Stellium, a North Flow LLC company · Built by women, for women founders</span>
+    <span>© 2026 Stellium, a North Flow LLC company · Built by women, for women founders<br><span class="footer-consent">Join the waitlist and you'll get emails from Christine about Stellium. You can unsubscribe anytime.</span></span>
     <nav aria-label="Footer">
       <a href="#calculator">Try it</a>
       <a href="#how">How it works</a>
