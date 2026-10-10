@@ -392,6 +392,16 @@
   .name-section .kicker { color: var(--rose); }
   .name-section p { color: var(--on-night-soft); }
   .name-close { font: italic 400 1.5rem/1.4 var(--serif); color: #fff !important; margin-top: 1.4rem; }
+
+  /* Proof cards float in, one after another, then drift gently */
+  @keyframes float-in { from { opacity: 0; translate: 0 26px; } to { opacity: 1; translate: 0 0; } }
+  @keyframes drift { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
+  .float-proof, .win { animation: float-in .8s cubic-bezier(.2, .7, .2, 1) both, drift 6s ease-in-out infinite; animation-delay: var(--d, .3s), calc(var(--d, .3s) + .8s); }
+  .float-proof { --d: .35s; }
+  .win:nth-child(1) { --d: .65s; }
+  .win:nth-child(2) { --d: .95s; }
+  .win:nth-child(3) { --d: 1.25s; }
+  @media (prefers-reduced-motion: reduce) { .float-proof, .win { animation: none; } }
 </style>
 </head>
 <body>
@@ -507,7 +517,7 @@
             </svg>
             <span class="badge-core" aria-hidden="true">↓</span>
           </a>
-          <p class="before">It's Sunday night, payroll is due tomorrow, and you have your bank app open and you are running the math in your head. Again.</p>
+          <p class="before">It's Sunday night, payroll is due tomorrow, you have your bank app open, and you are running the math in your head. Again.</p>
           <p class="lede">Stellium is designed to help you make the financial decisions you need to make today, without an accounting degree, a spreadsheet, or complicated accounting software.</p>
 
           <form class="waitlist" action="/api/waitlist" method="post" novalidate>
@@ -518,9 +528,6 @@
             </div>
             <div class="hp" aria-hidden="true"><input type="text" name="company" tabindex="-1" autocomplete="off"></div>
             <p class="form-error" id="error-hero" role="alert"></p>
-            <p class="form-qb">Connects to your QuickBooks.</p>
-            <p class="form-note">Founding members get first access and founding-member pricing.</p>
-            <p class="form-consent">You'll get emails from Christine about Stellium, and you can unsubscribe anytime.</p>
           </form>
         </div>
 
@@ -761,9 +768,6 @@
         </div>
         <div class="hp" aria-hidden="true"><input type="text" name="company" tabindex="-1" autocomplete="off"></div>
         <p class="form-error" id="error-join" role="alert"></p>
-        <p class="form-qb">Connects to your QuickBooks.</p>
-        <p class="form-note">Founding members get first access and founding-member pricing.</p>
-        <p class="form-consent">You'll get emails from Christine about Stellium, and you can unsubscribe anytime.</p>
       </form>
     </div>
   </section>
