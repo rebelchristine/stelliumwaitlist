@@ -276,6 +276,88 @@
   @media (min-width: 760px) { .site-footer .wrap { flex-direction: row; justify-content: space-between; align-items: center; } }
 
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+  /* ===== Collage hero (inspired by layered fintech layouts) ===== */
+  .collage {
+    position: relative; overflow: hidden; padding: 2.5rem 0 0;
+    background-color: #e9d6d6;
+    background-image:
+      radial-gradient(circle at 78% 18%, rgba(255, 255, 255, .55), rgba(255, 255, 255, 0) 45%),
+      radial-gradient(circle at 15% 85%, rgba(214, 195, 184, .7), rgba(214, 195, 184, 0) 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3  0 0 0 0 0.2  0 0 0 0 0.3  0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .collage-stage { position: relative; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; padding-bottom: 3rem; }
+  .collage-title { margin: 0; text-align: center; font-family: var(--sans); font-weight: 400; letter-spacing: -0.045em; line-height: .9; color: #4b3660; }
+  .collage-title span { display: block; }
+  .t-intro { font: 500 clamp(1.1rem, 3.5vw, 1.4rem)/1.3 var(--sans); letter-spacing: -0.01em; color: var(--ink); margin-bottom: .6rem; }
+  .t-giant { font-size: clamp(4.2rem, 21vw, 8rem); }
+  .t-b { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.03em; }
+  .collage-category { margin: 0; padding: .45rem 1rem; border-radius: 999px; background: rgba(255, 255, 255, .6); font: 500 .95rem/1.35 var(--sans); color: var(--ink); text-align: center; }
+
+  .phone { width: min(330px, 100%); padding: 10px; border-radius: 48px; background: #1c1420; box-shadow: 0 50px 90px -35px rgba(51, 35, 63, .7), 0 0 0 1px rgba(255, 255, 255, .06) inset; }
+  .phone-screen { position: relative; border-radius: 38px; overflow: hidden; background: linear-gradient(170deg, #3d2a4b, #33233f); }
+  .phone-notch { width: 96px; height: 26px; margin: 10px auto 0; border-radius: 999px; background: #0d0a10; }
+  .phone .calc { background: none; box-shadow: none; border-radius: 0; padding: .9rem 1rem 1.2rem; }
+  .phone .calc-head { margin-bottom: .8rem; }
+  .phone .calc-head h2 { font: 600 1.15rem/1.2 var(--sans); letter-spacing: -0.01em; }
+  .phone .calc-fields { gap: .5rem; }
+  .phone .field { padding: .6rem .75rem; border-radius: .8rem; }
+  .phone .field label { font-size: .85rem; }
+  .phone .field small { font-size: .74rem; }
+  .phone .money { font-size: 1rem; }
+  .phone .money input { width: 6.6ch; }
+  .phone .calc-result { margin-top: .9rem; padding-top: .9rem; }
+  .phone .result-figure { font-size: 2.3rem; }
+
+  .float { background: rgba(255, 255, 255, .92); border-radius: 1.1rem; box-shadow: 0 24px 50px -28px rgba(51, 35, 63, .55); padding: 1.1rem 1.2rem; width: min(330px, 100%); }
+  .float-proof b { display: block; font: 400 2.1rem/1.1 var(--sans); letter-spacing: -0.04em; color: #4b3660; margin-bottom: .35rem; white-space: nowrap; }
+  .float-proof span:last-child { font-size: .88rem; line-height: 1.4; color: #44544f; }
+  .float-founder { display: flex; align-items: center; gap: .8rem; }
+  /* Phone order: headline, category, proof, calculator, founder */
+  .collage-title { order: 0; } .collage-category { order: 1; } .float-proof { order: 2; } .phone { order: 3; } .float-founder { order: 4; }
+  .float-founder img { flex: none; width: 3.5rem; height: 3.5rem; border-radius: 50%; object-fit: cover; }
+  .float-founder span { font-size: .85rem; line-height: 1.4; color: #44544f; }
+  .float-founder b { display: block; font-weight: 600; color: var(--ink); }
+
+  @media (min-width: 980px) {
+    .collage { padding-top: 0; }
+    .collage-stage { display: block; min-height: 760px; }
+    .collage-title { position: absolute; inset: 0; text-align: left; pointer-events: none; }
+    .t-intro { position: absolute; top: 3.2rem; left: 1.5rem; max-width: 16ch; }
+    .t-giant { position: absolute; font-size: clamp(6.5rem, 9.6vw, 9.5rem); }
+    .t-a { top: 7.5rem; left: 1rem; }
+    .t-b { bottom: 4.5rem; right: 1.5rem; }
+    .collage-category { position: absolute; top: 3.2rem; right: 1.5rem; max-width: 22rem; text-align: left; }
+    .phone { position: absolute; top: 4.5rem; left: 57%; transform: translateX(-50%) rotate(-3deg); z-index: 2; }
+    .float { position: absolute; z-index: 3; width: 260px; }
+    .float-proof { left: 1.5rem; bottom: 6rem; }
+    .float-founder { right: 1.5rem; top: 12rem; }
+  }
+
+  .collage-band { position: relative; z-index: 4; }
+  .band-grid { display: grid; gap: 0; padding: 0; }
+  .band-stat { display: none; }
+  .band-panel { position: relative; padding: 3.5rem 1.5rem 3rem; border-radius: 1.6rem 1.6rem 0 0; }
+  .band-panel.dark { background: var(--teal); }
+  .band-panel.dark { overflow: visible; }
+  .band-panel.dark::before { inset: 0; width: auto; height: auto; border-radius: inherit; background: radial-gradient(circle at 85% 0%, rgba(208, 173, 177, .28), rgba(208, 173, 177, 0) 55%); }
+  .band-panel .before { color: #fff; }
+  .band-panel .lede { color: #cfdcdc; max-width: 46ch; margin: 0 0 1.6rem; }
+  @media (min-width: 980px) {
+    .band-grid { grid-template-columns: 1fr 2.2fr 1fr; align-items: end; }
+    .band-stat { display: block; padding: 0 0 2.5rem; text-align: center; }
+    .band-stat b { display: block; font: 400 4.5rem/1 var(--sans); letter-spacing: -0.05em; color: #4b3660; }
+    .band-stat span { font-size: .9rem; color: #44544f; }
+    .band-panel { padding: 3.8rem 3rem 3rem; }
+  }
+
+  .badge { position: absolute; top: -3.4rem; left: 50%; transform: translateX(-50%); width: 6.8rem; height: 6.8rem; border-radius: 50%; background: radial-gradient(circle, #d9b3c4, #b98aa6); display: grid; place-items: center; text-decoration: none; box-shadow: 0 16px 40px -18px rgba(51, 35, 63, .8); }
+  .badge svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: badge-spin 18s linear infinite; }
+  .badge text { font: 600 9.5px/1 var(--sans); letter-spacing: .14em; fill: #33233f; }
+  .badge-core { width: 2.6rem; height: 2.6rem; border-radius: 50%; background: #33233f; color: var(--neon); display: grid; place-items: center; font: 600 1.2rem/1 var(--sans); }
+  @media (min-width: 980px) { .badge { top: -3.4rem; left: auto; right: 2.5rem; transform: none; } }
+  @keyframes badge-spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .badge svg { animation: none; } }
 </style>
 </head>
 <body>
@@ -300,20 +382,92 @@
 
 <main id="top">
 
-  <!-- 02 Hero -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div>
-          <p class="category">Cash flow software for service-based women founders at $100K to $1M</p>
-          <h1>See what your cash will do for the <em class="accent">next 90 days</em></h1>
+  <!-- 02 Hero (collage: giant type, product in a phone, floating cards, teal band) -->
+  <section class="collage">
+    <div class="wrap collage-stage">
+      <h1 class="collage-title">
+        <span class="t-intro">See what your cash will do for the</span>
+        <span class="t-giant t-a">next 90</span>
+        <span class="t-giant t-b">days</span>
+      </h1>
+
+      <p class="collage-category">Cash flow software for service-based women founders at $100K to $1M</p>
+
+      <!-- Calculator inside a phone: runs in the browser only, nothing is sent or saved -->
+      <div class="phone" id="calculator">
+        <div class="phone-screen">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="calc">
+            <div class="calc-head">
+              <h2>Your next 90 days</h2>
+              <span class="calc-tag">Try it · nothing saved</span>
+            </div>
+            <div class="calc-fields">
+              <div class="field">
+                <label for="c-cash">Cash on hand</label>
+                <span class="money">$<input id="c-cash" inputmode="numeric" autocomplete="off" value="50,000" aria-describedby="c-cash-hint"></span>
+                <small id="c-cash-hint">In the business accounts today.</small>
+              </div>
+              <div class="field">
+                <label for="c-in">Money in / month</label>
+                <span class="money">$<input id="c-in" inputmode="numeric" autocomplete="off" value="35,000" aria-describedby="c-in-hint"></span>
+                <small id="c-in-hint">An ordinary month.</small>
+              </div>
+              <div class="field">
+                <label for="c-out">Money out / month</label>
+                <span class="money">$<input id="c-out" inputmode="numeric" autocomplete="off" value="32,000" aria-describedby="c-out-hint"></span>
+                <small id="c-out-hint">Including what you pay yourself.</small>
+              </div>
+            </div>
+            <div class="calc-result" aria-live="polite">
+              <div class="result-label">Your cash in 90 days</div>
+              <div class="result-figure" id="c-result">$59,000</div>
+              <p class="result-note" id="c-note">Up $9,000 from today.</p>
+              <svg class="calc-chart" id="c-chart" viewBox="0 0 320 110" role="img" aria-label="Your cash over the next 90 days">
+                <defs>
+                  <linearGradient id="c-fill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#ff7ad1" stop-opacity=".3"/>
+                    <stop offset="1" stop-color="#ff7ad1" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <line id="c-zero" x1="0" x2="320" y1="92" y2="92" stroke="rgba(255,255,255,.18)" stroke-dasharray="3 4"/>
+                <path id="c-area" fill="url(#c-fill)"/>
+                <path id="c-line" fill="none" stroke="#ff7ad1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <g font-family="Inter Tight, sans-serif" font-size="11" fill="#c6b3cc">
+                  <text x="4" y="107">Today</text>
+                  <text x="316" y="107" text-anchor="end">90 days</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="float float-proof">
+        <b>$257K <span aria-hidden="true">→</span><span class="sr-only">to</span> $818K</b>
+        <span>One service-based founder's revenue over three years, using the method inside Stellium.</span>
+      </div>
+
+      <div class="float float-founder">
+        <img src="img/christine-walsh.jpg" alt="" width="56" height="56">
+        <span><b>Built by Christine Walsh</b>12 years on Wall Street, 20 years in entrepreneurial finance</span>
+      </div>
+    </div>
+
+    <div class="collage-band">
+      <div class="wrap band-grid">
+        <div class="band-stat"><b>90</b><span>/ days ahead /</span></div>
+
+        <div class="band-panel dark">
+          <a class="badge" href="#join" aria-label="Join the waitlist">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="badge-circle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+              <text><textPath href="#badge-circle">JOIN THE WAITLIST · JOIN THE WAITLIST · </textPath></text>
+            </svg>
+            <span class="badge-core" aria-hidden="true">↓</span>
+          </a>
           <p class="before">It's Sunday night, the bank app is open again, and you're doing Friday's payroll math in your head.</p>
           <p class="lede">Stellium reads your QuickBooks, so you know what you can spend this month and where the low point is before you get there.</p>
-
-          <div class="hero-proof">
-            <b>$257K <span aria-hidden="true">→</span><span class="sr-only">to</span> $818K</b>
-            <span>One service-based founder's revenue over three years, using the method inside Stellium.</span>
-          </div>
 
           <form class="waitlist" action="/api/waitlist" method="post" novalidate>
             <div class="waitlist-row">
@@ -326,68 +480,10 @@
             <p class="form-note">Founding members get first access and founding-member pricing.</p>
             <p class="form-consent">You'll get emails from Christine about Stellium, and you can unsubscribe anytime.</p>
           </form>
-
-          <div class="hero-sig">
-            <img src="img/christine-walsh.jpg" alt="" width="48" height="48">
-            <span>Built by Christine Walsh: 12 years on Wall Street, 20 years in entrepreneurial finance, and author of <em>Be the Queen of Your Money</em></span>
-          </div>
         </div>
 
-        <!-- Calculator: runs in the browser only, nothing is sent or saved -->
-        <div class="calc" id="calculator">
-          <div class="calc-head">
-            <h2>Try it with your numbers</h2>
-            <span class="calc-tag">Free · nothing is saved</span>
-          </div>
-          <div class="calc-fields">
-            <div class="field">
-              <label for="c-cash">Cash on hand</label>
-              <span class="money">$<input id="c-cash" inputmode="numeric" autocomplete="off" value="50,000" aria-describedby="c-cash-hint"></span>
-              <small id="c-cash-hint">Everything in the business accounts today.</small>
-            </div>
-            <div class="field">
-              <label for="c-in">Money in per month</label>
-              <span class="money">$<input id="c-in" inputmode="numeric" autocomplete="off" value="35,000" aria-describedby="c-in-hint"></span>
-              <small id="c-in-hint">An ordinary month. Pick a middle-of-the-road one.</small>
-            </div>
-            <div class="field">
-              <label for="c-out">Money out per month</label>
-              <span class="money">$<input id="c-out" inputmode="numeric" autocomplete="off" value="32,000" aria-describedby="c-out-hint"></span>
-              <small id="c-out-hint">Everything that leaves, including what you pay yourself.</small>
-            </div>
-          </div>
-          <div class="calc-result" aria-live="polite">
-            <div class="result-label">Your cash in 90 days</div>
-            <div class="result-figure" id="c-result">$59,000</div>
-            <p class="result-note" id="c-note">Up $9,000 from today.</p>
-            <svg class="calc-chart" id="c-chart" viewBox="0 0 320 110" role="img" aria-label="Your cash over the next 90 days">
-              <defs>
-                <linearGradient id="c-fill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#ff7ad1" stop-opacity=".28"/>
-                  <stop offset="1" stop-color="#ff7ad1" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <line id="c-zero" x1="0" x2="320" y1="92" y2="92" stroke="rgba(255,255,255,.18)" stroke-dasharray="3 4"/>
-              <path id="c-area" fill="url(#c-fill)"/>
-              <path id="c-line" fill="none" stroke="#ff7ad1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <g font-family="Inter Tight, sans-serif" font-size="9" fill="#c6b3cc">
-                <text x="4" y="107">Today</text>
-                <text x="107" y="107" text-anchor="middle">30 days</text>
-                <text x="213" y="107" text-anchor="middle">60 days</text>
-                <text x="316" y="107" text-anchor="end">90 days</text>
-              </g>
-            </svg>
-          </div>
-          <p class="calc-foot">This rough version assumes every month looks the same. Stellium keeps the real view live from your QuickBooks, low points included.</p>
-        </div>
+        <div class="band-stat"><b>12</b><span>/ years on Wall Street /</span></div>
       </div>
-
-      <ul class="stats">
-        <li><b>90 days</b>of your cash, laid out ahead of you</li>
-        <li><b>QuickBooks</b>connects to the books you already keep</li>
-        <li><b>12 years</b>on Wall Street behind the method</li>
-
-      </ul>
     </div>
   </section>
 
