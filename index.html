@@ -113,6 +113,11 @@
   @media (min-width: 520px) { .waitlist-row { flex-direction: row; } .waitlist-row input { flex: 1; } }
   .form-note { font-size: .9rem; color: var(--ink-soft); margin: .85rem 0 0; }
   .form-consent { font-size: .8rem; color: var(--ink-faint); margin: .3rem 0 0; }
+  .form-qb { display: inline-flex; align-items: center; gap: .45rem; margin: .8rem 0 0; font: 600 .9rem/1.3 var(--sans); color: var(--ink); }
+  .form-qb::before { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: var(--neon); }
+  .dark .form-qb { color: #fff; }
+  .closer .form-qb { display: flex; justify-content: center; }
+  .own-line { font: italic 400 1.2rem/1.55 var(--serif); color: var(--ink); border-left: 3px solid var(--night); padding-left: 1rem; }
   .form-error { font-size: .95rem; color: #a3123f; margin: .6rem 0 0; }
   .form-error:empty { margin: 0; }
   .waitlist .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
@@ -477,6 +482,7 @@
             </div>
             <div class="hp" aria-hidden="true"><input type="text" name="company" tabindex="-1" autocomplete="off"></div>
             <p class="form-error" id="error-hero" role="alert"></p>
+            <p class="form-qb">Connects to your QuickBooks.</p>
             <p class="form-note">Founding members get first access and founding-member pricing.</p>
             <p class="form-consent">You'll get emails from Christine about Stellium, and you can unsubscribe anytime.</p>
           </form>
@@ -491,18 +497,19 @@
   <section id="problem">
     <div class="wrap">
       <div class="prose">
-        <p class="kicker">The problem</p>
-        <h2>You check the balance more than you admit</h2>
+        <p class="kicker">What it looks like right now</p>
+        <h2>You are making your biggest decisions on a number that only tells you about today</h2>
         <p class="lede">You have been dreaming forever about this business making money, and now it does, and you cannot see what it looks like ninety days from now.</p>
       </div>
       <ul class="problem-list prose">
+        <li>You make the call from the balance, a gut read, and a spreadsheet you built in January and stopped updating in March.</li>
         <li>The balance tells you almost nothing about the end of the month, so you check it again.</li>
-        <li>Payroll, the bills, and the quarterly taxes all seem to land in the same week, and you are in it when it happens.</li>
-        <li>The hire you desperately want (read: need) to make gets decided on how the balance looked that morning.</li>
+        <li>You tell yourself you will go through it this week, and you have been telling yourself that for a month.</li>
+        <li>You decide on the hire from how the balance looked that morning.</li>
       </ul>
       <div class="prose">
         <p>Your bookkeeper sends a profit and loss report that tells you what already happened, and you still say "I don't know my numbers." Every week you don't look makes the next look harder, because the longer you wait, the worse you fear it is.</p>
-        <p>Shame keeps money in the dark, and when we avoid our numbers, we are also avoiding our ability to choose.</p>
+        <p class="own-line">What I was avoiding all along was the shame around my finances, and it cost me every decision I did not get to make on purpose.</p>
       </div>
     </div>
   </section>
@@ -692,6 +699,7 @@
         </div>
         <div class="hp" aria-hidden="true"><input type="text" name="company" tabindex="-1" autocomplete="off"></div>
         <p class="form-error" id="error-join" role="alert"></p>
+        <p class="form-qb">Connects to your QuickBooks.</p>
         <p class="form-note">Founding members get first access and founding-member pricing.</p>
         <p class="form-consent">You'll get emails from Christine about Stellium, and you can unsubscribe anytime.</p>
       </form>
