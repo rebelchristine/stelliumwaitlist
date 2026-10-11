@@ -457,6 +457,15 @@
   .initials { color: var(--gold-deep); }
   .site-footer { border-top: 1px solid rgba(201, 164, 106, .35); }
 
+
+  /* Revenue follow-up inside the confirmation */
+  .revenue-q { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--night-line, rgba(0,0,0,.1)); }
+  .revenue-ask { margin: 0 0 .8rem; font-size: .95rem; line-height: 1.45; }
+  .revenue-options { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .revenue-option { min-height: 2.6rem; padding: 0 1rem; border-radius: 999px; border: 1px solid rgba(201, 164, 106, .7); background: transparent; color: inherit; font: 600 .9rem/1 var(--sans); cursor: pointer; }
+  .revenue-option:hover { background: var(--neon); border-color: var(--neon); color: #1a1238; }
+  .revenue-option[disabled] { opacity: .5; cursor: default; }
+  .revenue-thanks { margin: 0; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -914,6 +923,40 @@
     return box;
   }
 
+  // Optional follow-up right after joining: one tap to share annual revenue.
+  // It saves as revenue_band on her Customer.io profile and can only update someone already on the list.
+  var BANDS = [
+    ["under_100k", "Under $100K"], ["100k_250k", "$100K–$250K"], ["250k_750k", "$250K–$750K"],
+    ["750k_1m", "$750K–$1M"], ["1m_plus", "$1M+"], ["prefer_not_to_say", "Prefer not to say"]
+  ];
+  function revenueQuestion(email) {
+    var box = confirmation();
+    var q = document.createElement("div");
+    q.className = "revenue-q";
+    q.innerHTML = "<p class=\"revenue-ask\" id=\"revenue-ask\">One quick question so Christine can plan your early access: about how much does your business bring in a year?</p><div class=\"revenue-options\" role=\"group\" aria-labelledby=\"revenue-ask\"></div>";
+    var options = q.querySelector(".revenue-options");
+    BANDS.forEach(function (band) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "revenue-option";
+      b.textContent = band[1];
+      b.addEventListener("click", async function () {
+        options.querySelectorAll("button").forEach(function (x) { x.disabled = true; });
+        try {
+          await fetch("/api/waitlist", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: email, revenue_band: band[0], company: "" })
+          });
+        } catch (e) { /* the answer is optional; she is already on the list either way */ }
+        q.innerHTML = "<p class=\"revenue-thanks\" role=\"status\">Thank you. That helps.</p>";
+      });
+      options.appendChild(b);
+    });
+    box.appendChild(q);
+    return box;
+  }
+
   // Coming back from a plain form post (JavaScript was off when she submitted).
   var params = new URLSearchParams(location.search);
   if (params.get("joined") === "1") {
@@ -956,8 +999,9 @@
         if (!response.ok) throw new Error("Request failed: " + response.status);
 
         // She's in, so swap both forms (hero and bottom) for the confirmation.
+        // The form she used also asks one optional follow-up: her revenue band.
         document.querySelectorAll("form.waitlist").forEach(function (f) {
-          var box = confirmation();
+          var box = f === form ? revenueQuestion(email) : confirmation();
           f.replaceWith(box);
           if (f === form) box.focus();
         });

@@ -1,5 +1,6 @@
 // Vercel function: POST /api/waitlist
-// Creates (or updates) a person in Customer.io with signup_source = "waitlist".
+// Creates (or updates) a person in Customer.io with signup_source = "waitlist",
+// and accepts an optional follow-up answer (revenue_band) for someone already on the list.
 // Secrets live only in Vercel environment variables, never in the browser:
 //   CUSTOMERIO_SITE_ID, CUSTOMERIO_TRACK_API_KEY
 // Docs: https://docs.customer.io/integrations/api/track/ (PUT /api/v1/customers/{identifier}, Basic auth)
@@ -7,6 +8,8 @@
 const TRACK_URL = "https://track.customer.io/api/v1/customers/"; // US region
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_IDENTIFIER_BYTES = 150; // Customer.io limit for an identifier
+// Optional follow-up answer, asked right after someone joins. Only these values are accepted.
+const REVENUE_BANDS = ["under_100k", "100k_250k", "250k_750k", "750k_1m", "1m_plus", "prefer_not_to_say"];
 
 export async function POST(request) {
   const contentType = request.headers.get("content-type") || "";
@@ -33,6 +36,17 @@ export async function POST(request) {
     return reply(isJson, 400, { error: "Please enter a valid email address." });
   }
 
+  // Two kinds of request: joining (email only), or the follow-up revenue answer for someone who just joined.
+  const revenueBand = fields && fields.revenue_band != null ? String(fields.revenue_band) : null;
+  if (revenueBand !== null && !REVENUE_BANDS.includes(revenueBand)) {
+    return reply(isJson, 400, { error: "Invalid revenue band." });
+  }
+  const payload = revenueBand
+    // _update: true means Customer.io only updates an existing person and never creates a new one,
+    // so this follow-up can't be used to add people to the list.
+    ? { email, revenue_band: revenueBand, _update: true }
+    : { email, signup_source: "waitlist", waitlist_joined_at: Math.floor(Date.now() / 1000) };
+
   const siteId = process.env.CUSTOMERIO_SITE_ID;
   const apiKey = process.env.CUSTOMERIO_TRACK_API_KEY;
   if (!siteId || !apiKey) {
@@ -47,11 +61,7 @@ export async function POST(request) {
         Authorization: "Basic " + Buffer.from(siteId + ":" + apiKey).toString("base64"),
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        email,
-        signup_source: "waitlist",
-        waitlist_joined_at: Math.floor(Date.now() / 1000),
-      }),
+      body: JSON.stringify(payload),
       signal: AbortSignal.timeout(8000),
     });
 
