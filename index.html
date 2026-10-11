@@ -510,6 +510,9 @@
   }
   /* "Who it's for" line in the hero: bigger, still well below the headline */
   .hero-eyebrow { font: 700 clamp(1rem, 2.4vw, 1.2rem)/1.4 var(--sans); letter-spacing: .06em; color: var(--gold-deep, #7a5a32); }
+
+  .calc-head h2 em { font-style: normal; text-transform: uppercase; letter-spacing: .02em; color: var(--neon); }
+  .phone .calc-foot { margin: .7rem 0 0; font-size: .82rem; line-height: 1.4; color: var(--on-night-soft); }
 </style>
 </head>
 <body>
@@ -550,7 +553,7 @@
           <div class="phone-notch" aria-hidden="true"></div>
           <div class="calc">
             <div class="calc-head">
-              <h2>Try your numbers</h2>
+              <h2>See <em>your</em> next 90 days right now</h2>
               <span class="calc-tag">Example · nothing saved</span>
             </div>
             <div class="calc-fields">
@@ -589,6 +592,7 @@
                   <text x="316" y="107" text-anchor="end">90 days</text>
                 </g>
               </svg>
+              <p class="calc-foot">Stellium is designed to keep it live without you.</p>
             </div>
           </div>
         </div>
