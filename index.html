@@ -483,7 +483,7 @@
   .phone { order: 2; }
   @media (min-width: 980px) {
     .collage { padding-top: 0; }
-    .collage-stage { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); grid-template-areas: "copy phone" "proof phone"; column-gap: 4rem; row-gap: 2rem; align-items: start; min-height: 0; padding-top: 4.5rem; padding-bottom: 5.5rem; }
+    .collage-stage { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); grid-template-areas: "copy phone" "proof phone"; grid-template-rows: auto 1fr; column-gap: 4rem; row-gap: 1.6rem; align-items: start; min-height: 0; padding-top: 4.5rem; padding-bottom: 5.5rem; }
     .hero-copy { grid-area: copy; }
     .float-proof { grid-area: proof; position: static; width: auto; max-width: 25rem; align-self: start; }
     .phone { grid-area: phone; position: static; transform: rotate(-3deg); justify-self: center; }
@@ -545,18 +545,12 @@
 
       <!-- Calculator inside a phone: runs in the browser only, nothing is sent or saved -->
       <div class="calc-col">
-      <div class="calc-intro">
-        <h2 class="calc-intro-title">What could your next 90 days look like?</h2>
-        <p>Play with the numbers below and get a glimpse of what could happen to your cash over the next 90 days.</p>
-        <p>Start with our example, then try your own numbers.</p>
-        <p class="calc-intro-note">No spreadsheets, no complex software, just choice.</p>
-      </div>
       <div class="phone" id="calculator">
         <div class="phone-screen">
           <div class="phone-notch" aria-hidden="true"></div>
           <div class="calc">
             <div class="calc-head">
-              <h2>Your next 90 days</h2>
+              <h2>Try your numbers</h2>
               <span class="calc-tag">Example · nothing saved</span>
             </div>
             <div class="calc-fields">
@@ -903,7 +897,7 @@
 <!-- 12 Footer -->
 <footer class="site-footer">
   <div class="wrap">
-    <span>© 2026 Stellium, a North Flow LLC company · Built by women, for women founders</span>
+    <span>© 2026 Stellium, a NorthFlow LLC company · Built by women, for women founders</span>
     <nav aria-label="Footer">
       <a href="#calculator">Try it</a>
       <a href="#how">How it works</a>
