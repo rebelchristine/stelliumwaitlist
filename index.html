@@ -497,6 +497,19 @@
   #problem .own-line { margin: 2rem 0; }
 
   .about-quote { margin: 1.4rem 0 1.6rem; }
+
+  /* Calculator column: clear call to action above the phone */
+  .calc-col { order: 2; display: flex; flex-direction: column; align-items: center; gap: 1.4rem; width: 100%; }
+  .calc-intro { max-width: 26rem; text-align: center; }
+  .calc-intro-title { margin: 0 0 .6rem; font: 400 clamp(1.5rem, 4.5vw, 1.9rem)/1.25 var(--serif); color: var(--ink); }
+  .calc-intro p { margin: 0 0 .5rem; color: var(--ink-soft); font-size: 1rem; line-height: 1.55; }
+  .calc-intro-note { font-weight: 700; color: var(--ink) !important; }
+  @media (min-width: 980px) {
+    .phone { grid-area: auto; }
+    .calc-col { grid-area: phone; }
+  }
+  /* "Who it's for" line in the hero: bigger, still well below the headline */
+  .hero-eyebrow { font: 700 clamp(1rem, 2.4vw, 1.2rem)/1.4 var(--sans); letter-spacing: .06em; color: var(--gold-deep, #7a5a32); }
 </style>
 </head>
 <body>
@@ -531,35 +544,42 @@
       </div>
 
       <!-- Calculator inside a phone: runs in the browser only, nothing is sent or saved -->
+      <div class="calc-col">
+      <div class="calc-intro">
+        <h2 class="calc-intro-title">What could your next 90 days look like?</h2>
+        <p>Play with the numbers below and get a glimpse of what could happen to your cash over the next 90 days.</p>
+        <p>Start with our example, then try your own numbers.</p>
+        <p class="calc-intro-note">No spreadsheets, no complex software, just choice.</p>
+      </div>
       <div class="phone" id="calculator">
         <div class="phone-screen">
           <div class="phone-notch" aria-hidden="true"></div>
           <div class="calc">
             <div class="calc-head">
               <h2>Your next 90 days</h2>
-              <span class="calc-tag">Try it · nothing saved</span>
+              <span class="calc-tag">Example · nothing saved</span>
             </div>
             <div class="calc-fields">
               <div class="field">
                 <label for="c-cash">Cash on hand</label>
-                <span class="money">$<input id="c-cash" inputmode="numeric" autocomplete="off" value="50,000" aria-describedby="c-cash-hint"></span>
+                <span class="money">$<input id="c-cash" inputmode="numeric" autocomplete="off" value="30,000" aria-describedby="c-cash-hint"></span>
                 <small id="c-cash-hint">In the business accounts today.</small>
               </div>
               <div class="field">
                 <label for="c-in">Money in / month</label>
-                <span class="money">$<input id="c-in" inputmode="numeric" autocomplete="off" value="35,000" aria-describedby="c-in-hint"></span>
+                <span class="money">$<input id="c-in" inputmode="numeric" autocomplete="off" value="25,000" aria-describedby="c-in-hint"></span>
                 <small id="c-in-hint">An ordinary month.</small>
               </div>
               <div class="field">
                 <label for="c-out">Money out / month</label>
-                <span class="money">$<input id="c-out" inputmode="numeric" autocomplete="off" value="32,000" aria-describedby="c-out-hint"></span>
+                <span class="money">$<input id="c-out" inputmode="numeric" autocomplete="off" value="21,000" aria-describedby="c-out-hint"></span>
                 <small id="c-out-hint">Including what you pay yourself.</small>
               </div>
             </div>
             <div class="calc-result" aria-live="polite">
               <div class="result-label">Your cash in 90 days</div>
-              <div class="result-figure" id="c-result">$59,000</div>
-              <p class="result-note" id="c-note">Up $9,000 from today.</p>
+              <div class="result-figure" id="c-result">$42,000</div>
+              <p class="result-note" id="c-note">Up $12,000 from today.</p>
               <svg class="calc-chart" id="c-chart" viewBox="0 0 320 110" role="img" aria-label="Your cash over the next 90 days">
                 <defs>
                   <linearGradient id="c-fill" x1="0" y1="0" x2="0" y2="1">
@@ -578,6 +598,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       <div class="float float-proof">
