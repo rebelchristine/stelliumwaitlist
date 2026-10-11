@@ -435,22 +435,8 @@
     .ribbon-set + .ribbon-set { display: none; }
   }
 
-  /* Night sky and gold: brand bronze-gold as starlight on the ink, deep bronze on sand */
+  /* Gold accents: brand bronze-gold on the ink, deep bronze on sand (no starfield) */
   :root { --gold: #c9a46a; --gold-brand: #a38159; --gold-deep: #7a5a32; }
-  /* faint gold starfield on every ink section */
-  .dark, .ribbon, .site-footer, .phone-screen {
-    background-image:
-      radial-gradient(1.2px 1.2px at 12% 18%, rgba(201, 164, 106, .9), transparent 60%),
-      radial-gradient(1px 1px at 27% 72%, rgba(201, 164, 106, .7), transparent 60%),
-      radial-gradient(1.6px 1.6px at 44% 33%, rgba(201, 164, 106, .8), transparent 60%),
-      radial-gradient(1px 1px at 58% 84%, rgba(255, 255, 255, .5), transparent 60%),
-      radial-gradient(1.3px 1.3px at 71% 22%, rgba(201, 164, 106, .85), transparent 60%),
-      radial-gradient(1px 1px at 83% 61%, rgba(201, 164, 106, .6), transparent 60%),
-      radial-gradient(1.5px 1.5px at 92% 12%, rgba(255, 255, 255, .55), transparent 60%),
-      radial-gradient(1px 1px at 6% 88%, rgba(201, 164, 106, .6), transparent 60%);
-    background-size: 340px 300px;
-  }
-  .phone-screen { background-color: #1a1238; background-size: 260px 260px; }
   .band-panel.dark { background-color: var(--teal); }
   /* gold accents */
   .phone { box-shadow: 0 50px 90px -35px rgba(26, 18, 56, .7), 0 0 0 1.5px rgba(201, 164, 106, .55); }
@@ -471,10 +457,6 @@
   .initials { color: var(--gold-deep); }
   .site-footer { border-top: 1px solid rgba(201, 164, 106, .35); }
 
-  /* Visible night-sky starfield (gold and white) on every ink section */
-  .dark, .band-panel.dark, .ribbon, .site-footer, .phone-screen { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Ccircle cx='159' cy='330' r='0.7' fill='%23c9a46a' fill-opacity='0.57'/%3E%3Ccircle cx='184' cy='135' r='1.4' fill='%23ffffff' fill-opacity='0.55'/%3E%3Ccircle cx='223' cy='307' r='0.8' fill='%23c9a46a' fill-opacity='0.98'/%3E%3Ccircle cx='46' cy='93' r='1.4' fill='%23c9a46a' fill-opacity='0.66'/%3E%3Ccircle cx='2' cy='55' r='0.8' fill='%23c9a46a' fill-opacity='0.59'/%3E%3Ccircle cx='338' cy='376' r='1.3' fill='%23c9a46a' fill-opacity='0.76'/%3E%3Ccircle cx='233' cy='340' r='0.9' fill='%23c9a46a' fill-opacity='0.46'/%3E%3Ccircle cx='42' cy='127' r='1.7' fill='%23ffffff' fill-opacity='0.97'/%3E%3Ccircle cx='404' cy='22' r='1.7' fill='%23c9a46a' fill-opacity='0.99'/%3E%3Ccircle cx='267' cy='232' r='1.4' fill='%23ffffff' fill-opacity='1.00'/%3E%3Ccircle cx='289' cy='349' r='1.1' fill='%23c9a46a' fill-opacity='0.93'/%3E%3Ccircle cx='104' cy='189' r='1.4' fill='%23ffffff' fill-opacity='0.76'/%3E%3Ccircle cx='248' cy='402' r='1.4' fill='%23c9a46a' fill-opacity='0.70'/%3E%3Ccircle cx='244' cy='35' r='0.6' fill='%23c9a46a' fill-opacity='0.85'/%3E%3Ccircle cx='341' cy='127' r='0.9' fill='%23ffffff' fill-opacity='0.62'/%3E%3Ccircle cx='265' cy='302' r='1.2' fill='%23c9a46a' fill-opacity='0.81'/%3E%3Ccircle cx='58' cy='383' r='1.9' fill='%23c9a46a' fill-opacity='0.87'/%3E%3Ccircle cx='270' cy='99' r='1.0' fill='%23c9a46a' fill-opacity='0.48'/%3E%3Ccircle cx='218' cy='389' r='0.8' fill='%23c9a46a' fill-opacity='0.58'/%3E%3Ccircle cx='172' cy='316' r='1.4' fill='%23c9a46a' fill-opacity='0.84'/%3E%3Ccircle cx='145' cy='209' r='0.8' fill='%23c9a46a' fill-opacity='0.99'/%3E%3Ccircle cx='253' cy='408' r='1.3' fill='%23c9a46a' fill-opacity='0.93'/%3E%3Ccircle cx='93' cy='160' r='1.6' fill='%23c9a46a' fill-opacity='0.48'/%3E%3Ccircle cx='202' cy='226' r='1.1' fill='%23ffffff' fill-opacity='0.82'/%3E%3Ccircle cx='40' cy='169' r='0.7' fill='%23c9a46a' fill-opacity='0.46'/%3E%3Ccircle cx='148' cy='99' r='1.0' fill='%23ffffff' fill-opacity='0.76'/%3E%3Ccircle cx='333' cy='94' r='1.3' fill='%23c9a46a' fill-opacity='0.80'/%3E%3Ccircle cx='377' cy='240' r='1.3' fill='%23c9a46a' fill-opacity='0.59'/%3E%3Ccircle cx='360' cy='402' r='1.3' fill='%23ffffff' fill-opacity='0.86'/%3E%3Ccircle cx='235' cy='105' r='0.9' fill='%23c9a46a' fill-opacity='0.81'/%3E%3Ccircle cx='361' cy='65' r='0.9' fill='%23c9a46a' fill-opacity='0.72'/%3E%3Ccircle cx='227' cy='281' r='1.4' fill='%23c9a46a' fill-opacity='0.93'/%3E%3Ccircle cx='46' cy='122' r='1.2' fill='%23ffffff' fill-opacity='0.87'/%3E%3Ccircle cx='323' cy='399' r='1.3' fill='%23c9a46a' fill-opacity='0.52'/%3E%3Ccircle cx='50' cy='353' r='0.8' fill='%23ffffff' fill-opacity='1.00'/%3E%3Ccircle cx='220' cy='261' r='1.1' fill='%23c9a46a' fill-opacity='0.57'/%3E%3Ccircle cx='70' cy='396' r='1.2' fill='%23ffffff' fill-opacity='0.69'/%3E%3Ccircle cx='258' cy='16' r='1.8' fill='%23c9a46a' fill-opacity='0.73'/%3E%3Ccircle cx='250' cy='352' r='0.7' fill='%23c9a46a' fill-opacity='0.67'/%3E%3Ccircle cx='297' cy='321' r='1.7' fill='%23ffffff' fill-opacity='0.66'/%3E%3Ccircle cx='76' cy='397' r='1.3' fill='%23c9a46a' fill-opacity='0.93'/%3E%3Ccircle cx='353' cy='388' r='1.0' fill='%23c9a46a' fill-opacity='0.97'/%3E%3Ccircle cx='217' cy='104' r='1.4' fill='%23c9a46a' fill-opacity='0.70'/%3E%3Ccircle cx='144' cy='52' r='0.6' fill='%23c9a46a' fill-opacity='0.54'/%3E%3Ccircle cx='214' cy='18' r='1.3' fill='%23ffffff' fill-opacity='0.75'/%3E%3Ccircle cx='301' cy='191' r='1.8' fill='%23c9a46a' fill-opacity='0.95'/%3E%3Ccircle cx='321' cy='415' r='6' fill='%23c9a46a' fill-opacity='.12'/%3E%3Ccircle cx='321' cy='415' r='2.2' fill='%23e6c98f'/%3E%3Ccircle cx='19' cy='74' r='6' fill='%23c9a46a' fill-opacity='.12'/%3E%3Ccircle cx='19' cy='74' r='2.2' fill='%23e6c98f'/%3E%3Ccircle cx='334' cy='183' r='6' fill='%23c9a46a' fill-opacity='.12'/%3E%3Ccircle cx='334' cy='183' r='2.2' fill='%23e6c98f'/%3E%3Ccircle cx='339' cy='13' r='6' fill='%23c9a46a' fill-opacity='.12'/%3E%3Ccircle cx='339' cy='13' r='2.2' fill='%23e6c98f'/%3E%3C/svg%3E") !important; background-size: 420px 420px !important; background-repeat: repeat !important; }
-  .band-panel.dark { background-color: var(--teal) !important; }
-  .phone-screen { background-color: #1a1238 !important; background-size: 300px 300px !important; }
 </style>
 </head>
 <body>
