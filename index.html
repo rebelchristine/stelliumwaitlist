@@ -537,6 +537,11 @@
     .hero-form .badge { top: -4.6rem; left: auto; right: 1.8rem; transform: none; width: 6.8rem; height: 6.8rem; }
     .hero-form .badge .badge-core { width: 2.6rem; height: 2.6rem; }
   }
+  /* Real product screenshot in "What you see when you open it" */
+  .app-shot img { width: 100%; height: auto; display: block; }
+  .app-shot .app-caption { margin: 0; padding: .7rem 1.1rem; border-top: 1px solid var(--line); }
+  @media (min-width: 900px) { #what .split { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .app-shot { width: 100%; max-width: 60rem; }
 </style>
 </head>
 <body>
@@ -707,15 +712,10 @@
         <p>It takes what your books already know and carries it forward 30, 60, 90 days, and out to a year, with what is moving your cash and when. So when the hire comes up, you are looking at what happens if you make it, and you are the one deciding.</p>
       </div>
 
-      <figure class="app" aria-label="Preview of the Stellium runway view, with example numbers">
-        <div class="app-bar"><i></i><i></i><i></i><span>Stellium · Your runway</span></div>
-        <div class="app-body">
-          <div class="app-label">Your runway</div>
-          <div class="app-total">14 weeks</div>
-          <p class="app-define">How long your cash lasts at today's pace.</p>
-          <div class="app-row"><span>Where you land in 12 months</span><b>$42,000</b></div>
-          <p class="app-caption">Preview with example numbers.</p>
-        </div>
+      <figure class="app app-shot">
+        <div class="app-bar"><i></i><i></i><i></i><span>Stellium · Dashboard</span></div>
+        <img src="img/stellium-dashboard.png" alt="The Stellium dashboard: cash on hand, the cushion above a cash floor, and a 12-month cash position chart, shown with sample data" width="946" height="508" loading="lazy">
+        <figcaption class="app-caption">A look inside Stellium, with sample data.</figcaption>
       </figure>
     </div>
   </section>
