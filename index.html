@@ -473,6 +473,21 @@
   .form-benefit { margin: .85rem 0 0; font: 600 .95rem/1.4 var(--sans); color: var(--ink); }
   .dark .form-benefit { color: #fff; }
   .closer .form-benefit { text-align: center; }
+
+  /* Hero v2: Christine's headline on the left, calculator phone on the right, proof under the words */
+  .hero-copy { order: 0; width: 100%; }
+  .hero-eyebrow { margin: 0 0 1rem; font: 500 .78rem/1.5 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep, #7a5a32); }
+  .hero-h1 { margin: 0 0 1rem; font: 400 clamp(2.3rem, 7.5vw, 4.2rem)/1.08 var(--serif); letter-spacing: -0.02em; color: var(--ink); max-width: 14ch; }
+  .hero-sub { margin: 0; max-width: 40ch; font-size: clamp(1.1rem, 2.6vw, 1.3rem); line-height: 1.55; color: var(--ink-soft); }
+  .float-proof { order: 1; }
+  .phone { order: 2; }
+  @media (min-width: 980px) {
+    .collage { padding-top: 0; }
+    .collage-stage { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); grid-template-areas: "copy phone" "proof phone"; column-gap: 4rem; row-gap: 2rem; align-items: start; min-height: 0; padding-top: 4.5rem; padding-bottom: 5.5rem; }
+    .hero-copy { grid-area: copy; }
+    .float-proof { grid-area: proof; position: static; width: auto; max-width: 25rem; align-self: start; }
+    .phone { grid-area: phone; position: static; transform: rotate(-3deg); justify-self: center; }
+  }
 </style>
 </head>
 <body>
@@ -500,13 +515,11 @@
   <!-- 02 Hero (collage: giant type, product in a phone, floating cards, teal band) -->
   <section class="collage">
     <div class="wrap collage-stage">
-      <h1 class="collage-title">
-        <span class="t-intro">See what your cash will do for the</span>
-        <span class="t-giant t-a">next 90</span>
-        <span class="t-giant t-b">days</span>
-      </h1>
-
-      <p class="collage-category">Cash flow software for service-based women founders at $100K to $1M</p>
+      <div class="hero-copy">
+        <p class="hero-eyebrow">For women founders building $100K–$1M service businesses</p>
+        <h1 class="hero-h1">Stop guessing about your business money.</h1>
+        <p class="hero-sub">See where your cash is headed over the next 90 days, so you can pay yourself, hire, and grow with confidence.</p>
+      </div>
 
       <!-- Calculator inside a phone: runs in the browser only, nothing is sent or saved -->
       <div class="phone" id="calculator">
