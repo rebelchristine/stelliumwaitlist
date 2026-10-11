@@ -332,7 +332,7 @@
 
   @media (min-width: 980px) {
     .collage { padding-top: 0; }
-    .collage-stage { display: block; min-height: 830px; }
+    .collage-stage { display: block; min-height: 780px; }
     .collage-title { position: absolute; inset: 0; text-align: left; pointer-events: none; }
     .t-intro { position: absolute; top: 3.2rem; left: 1.5rem; max-width: 16ch; }
     .t-giant { position: absolute; font-size: clamp(6.5rem, 9.6vw, 9.5rem); }
@@ -419,6 +419,21 @@
   .float-proof b, .win b, .band-stat b, .stat-figure, .app-total, .result-figure { font-family: var(--sans); font-weight: 600; letter-spacing: -0.035em; }
   .win span:not(.win-arrow) { font-family: var(--sans); font-weight: 700; }
   .btn { letter-spacing: .01em; }
+
+  /* Client results ribbon: slow, continuous scroll; pauses on hover; still for reduced motion */
+  .ribbon { background: var(--night); color: #fff; overflow: hidden; padding: 1.1rem 0; border-top: 1px solid rgba(255, 255, 255, .08); }
+  .ribbon-track { display: flex; width: max-content; animation: ribbon-scroll 38s linear infinite; }
+  .ribbon:hover .ribbon-track { animation-play-state: paused; }
+  .ribbon-set { display: flex; align-items: center; gap: 1.6rem; padding-right: 1.6rem; white-space: nowrap; font: 500 1.05rem/1.2 var(--sans); }
+  .ribbon-set b { font-weight: 700; color: var(--neon); margin-right: .3rem; }
+  .ribbon-set i { font-style: normal; color: var(--neon); opacity: .7; }
+  .ribbon-label { font: 400 .78rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: #c9cfdb; }
+  @keyframes ribbon-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .ribbon-track { animation: none; width: auto; }
+    .ribbon-set { flex-wrap: wrap; white-space: normal; justify-content: center; padding: 0 1rem; }
+    .ribbon-set + .ribbon-set { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -509,12 +524,6 @@
         <span>One service-based founder's revenue over three years, using the method inside Stellium.</span>
       </div>
 
-      <!-- Client profit results (anonymized, provided by Christine 2026-10-10) -->
-      <ul class="wins" aria-label="Client profit changes, using the method inside Stellium">
-        <li class="win"><b><span class="win-arrow" aria-hidden="true">↑</span>80%</b><span>client profit in 2 years</span><small>7-figure group practice owner</small></li>
-        <li class="win"><b><span class="win-arrow" aria-hidden="true">↑</span>240%</b><span>client profit in 2 years</span><small>Multi-6-figure digital agency</small></li>
-        <li class="win"><b><span class="win-arrow" aria-hidden="true">↑</span>130%</b><span>client profit in 3 years</span><small>7-figure project management firm</small></li>
-      </ul>
 
       <div class="float float-founder">
         <img src="img/christine-walsh.jpg" alt="" width="56" height="56">
@@ -548,6 +557,25 @@
           </form>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Client results ribbon (anonymized, provided by Christine 2026-10-10) -->
+  <section class="ribbon" aria-label="Client profit results, using the method inside Stellium">
+    <p class="sr-only">Client profit results, using the method inside Stellium: up 80% in 2 years for a 7-figure group practice owner; up 240% in 2 years for a multi-6-figure digital agency; up 130% in 3 years for a 7-figure project management firm.</p>
+    <div class="ribbon-track" aria-hidden="true">
+      <div class="ribbon-set">
+        <span class="ribbon-label">Client profit, using the method inside Stellium</span><i>✦</i>
+        <span><b>↑ 80%</b> in 2 years · 7-figure group practice owner</span><i>✦</i>
+        <span><b>↑ 240%</b> in 2 years · Multi-6-figure digital agency</span><i>✦</i>
+        <span><b>↑ 130%</b> in 3 years · 7-figure project management firm</span><i>✦</i>
+      </div>
+      <div class="ribbon-set">
+        <span class="ribbon-label">Client profit, using the method inside Stellium</span><i>✦</i>
+        <span><b>↑ 80%</b> in 2 years · 7-figure group practice owner</span><i>✦</i>
+        <span><b>↑ 240%</b> in 2 years · Multi-6-figure digital agency</span><i>✦</i>
+        <span><b>↑ 130%</b> in 3 years · 7-figure project management firm</span><i>✦</i>
       </div>
     </div>
   </section>
