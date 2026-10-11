@@ -466,6 +466,13 @@
   .revenue-option:hover { background: var(--neon); border-color: var(--neon); color: #1a1238; }
   .revenue-option[disabled] { opacity: .5; cursor: default; }
   .revenue-thanks { margin: 0; font-weight: 600; }
+
+  /* Bridge line and benefit line */
+  .bridge { padding: 3.5rem 0; text-align: center; }
+  .bridge-line { margin: 0 auto; max-width: 30ch; font: italic 400 clamp(1.5rem, 4.2vw, 2.3rem)/1.35 var(--serif); color: var(--ink); }
+  .form-benefit { margin: .85rem 0 0; font: 600 .95rem/1.4 var(--sans); color: var(--ink); }
+  .dark .form-benefit { color: #fff; }
+  .closer .form-benefit { text-align: center; }
 </style>
 </head>
 <body>
@@ -484,7 +491,7 @@
       <a href="#for">Who it's for</a>
       <a href="#about">About</a>
     </nav>
-    <a class="btn btn-sm" href="#join">Join the waitlist</a>
+    <a class="btn btn-sm" href="#join">Get early access</a>
   </div>
 </header>
 
@@ -577,11 +584,12 @@
             <div class="waitlist-row">
               <label for="email-hero">Email address</label>
               <input id="email-hero" type="email" name="email" placeholder="you@yourbusiness.com" autocomplete="email" inputmode="email" required aria-describedby="error-hero">
-              <button class="btn" type="submit">Join the waitlist</button>
+              <button class="btn" type="submit">Get early access to Stellium</button>
             </div>
             <div class="hp" aria-hidden="true"><input type="text" name="company" tabindex="-1" autocomplete="off"></div>
             <p class="form-error" id="error-hero" role="alert"></p>
-            <p class="form-consent">Join the waitlist and you’ll get emails from Christine about Stellium. You can unsubscribe anytime.</p>
+            <p class="form-benefit">Be among the first founders invited to Stellium, with access to founding-member pricing.</p>
+            <p class="form-consent">Sign up and you’ll get emails from Christine about Stellium. You can unsubscribe anytime.</p>
           </form>
         </div>
 
@@ -625,6 +633,13 @@
         <p>You make the call from the balance, a gut read, and a spreadsheet you built in January and stopped updating in March. Your bookkeeper sends a profit and loss report that tells you what already happened, and you still say "I don't know my numbers." Every week you don't look makes the next look harder, because the longer you wait, the worse you fear it is.</p>
         <blockquote class="own-line"><p>“I know I wasn’t just avoiding my finances. I was avoiding my shame in my finances. And what it cost me was every decision I didn’t make on purpose.”</p><cite>Christine Walsh, Founder of Stellium</cite></blockquote>
       </div>
+    </div>
+  </section>
+
+  <!-- Bridge from the problem to the possibility -->
+  <section class="bridge" aria-label="What changes">
+    <div class="wrap">
+      <p class="bridge-line">Imagine opening your business finances and knowing exactly where you stand, and what your next move could be.</p>
     </div>
   </section>
 
@@ -836,10 +851,11 @@
         <div class="waitlist-row">
           <label for="email-join">Email address</label>
           <input id="email-join" type="email" name="email" placeholder="you@yourbusiness.com" autocomplete="email" inputmode="email" required aria-describedby="error-join">
-          <button class="btn" type="submit">Join the waitlist</button>
+          <button class="btn" type="submit">Get early access to Stellium</button>
         </div>
         <div class="hp" aria-hidden="true"><input type="text" name="company" tabindex="-1" autocomplete="off"></div>
         <p class="form-error" id="error-join" role="alert"></p>
+        <p class="form-benefit">Be among the first founders invited to Stellium, with access to founding-member pricing.</p>
       </form>
     </div>
   </section>
@@ -1007,7 +1023,7 @@
         });
       } catch (err) {
         button.disabled = false;
-        button.textContent = "Join the waitlist";
+        button.textContent = "Get early access to Stellium";
         error.textContent = "That didn't go through. Please try again in a minute.";
       } finally {
         clearTimeout(timer);
