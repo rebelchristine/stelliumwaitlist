@@ -434,6 +434,42 @@
     .ribbon-set { flex-wrap: wrap; white-space: normal; justify-content: center; padding: 0 1rem; }
     .ribbon-set + .ribbon-set { display: none; }
   }
+
+  /* Night sky and gold: brand bronze-gold as starlight on the ink, deep bronze on sand */
+  :root { --gold: #c9a46a; --gold-brand: #a38159; --gold-deep: #7a5a32; }
+  /* faint gold starfield on every ink section */
+  .dark, .ribbon, .site-footer, .phone-screen {
+    background-image:
+      radial-gradient(1.2px 1.2px at 12% 18%, rgba(201, 164, 106, .9), transparent 60%),
+      radial-gradient(1px 1px at 27% 72%, rgba(201, 164, 106, .7), transparent 60%),
+      radial-gradient(1.6px 1.6px at 44% 33%, rgba(201, 164, 106, .8), transparent 60%),
+      radial-gradient(1px 1px at 58% 84%, rgba(255, 255, 255, .5), transparent 60%),
+      radial-gradient(1.3px 1.3px at 71% 22%, rgba(201, 164, 106, .85), transparent 60%),
+      radial-gradient(1px 1px at 83% 61%, rgba(201, 164, 106, .6), transparent 60%),
+      radial-gradient(1.5px 1.5px at 92% 12%, rgba(255, 255, 255, .55), transparent 60%),
+      radial-gradient(1px 1px at 6% 88%, rgba(201, 164, 106, .6), transparent 60%);
+    background-size: 340px 300px;
+  }
+  .phone-screen { background-color: #1a1238; background-size: 260px 260px; }
+  .band-panel.dark { background-color: var(--teal); }
+  /* gold accents */
+  .phone { box-shadow: 0 50px 90px -35px rgba(26, 18, 56, .7), 0 0 0 1.5px rgba(201, 164, 106, .55); }
+  .t-b { color: var(--gold-deep); }
+  .float-proof { border: 1px solid rgba(163, 129, 89, .45); }
+  .float-proof b { color: var(--gold-deep); }
+  .collage-category { border: 1px solid rgba(163, 129, 89, .45); }
+  .calc-tag, .result-label, .ribbon-label, .name-section .kicker, .dark .kicker { color: var(--gold); }
+  .field { border-color: rgba(201, 164, 106, .28); }
+  .ribbon-set i { color: var(--gold); opacity: 1; }
+  .ribbon { border-top-color: rgba(201, 164, 106, .35); border-bottom: 1px solid rgba(201, 164, 106, .35); }
+  .steps li::before, .next li span { color: var(--gold); box-shadow: inset 0 0 0 1px rgba(201, 164, 106, .5); }
+  .stat-figure { color: var(--gold); }
+  .own-line { border-left-color: var(--gold-brand); }
+  .closer h2 em.accent { color: var(--gold); }
+  .badge { box-shadow: 0 16px 40px -18px rgba(26, 18, 56, .8), 0 0 0 2px var(--gold); }
+  .brand-mark { box-shadow: 0 0 0 1.5px var(--gold); }
+  .initials { color: var(--gold-deep); }
+  .site-footer { border-top: 1px solid rgba(201, 164, 106, .35); }
 </style>
 </head>
 <body>
@@ -712,12 +748,12 @@
   <section id="name" class="name-section dark">
     <div class="wrap name-grid">
       <svg class="cluster" viewBox="0 0 240 240" role="img" aria-label="Three bright stars gathered close together, with smaller stars around them">
-        <g fill="#ff7ad1">
+        <g fill="#c9a46a">
           <circle cx="104" cy="98" r="9"/>
           <circle cx="142" cy="112" r="7"/>
           <circle cx="116" cy="140" r="8"/>
         </g>
-        <g stroke="#ff7ad1" stroke-opacity=".35" stroke-width="1.2">
+        <g stroke="#c9a46a" stroke-opacity=".5" stroke-width="1.2">
           <line x1="104" y1="98" x2="142" y2="112"/>
           <line x1="142" y1="112" x2="116" y2="140"/>
           <line x1="116" y1="140" x2="104" y2="98"/>
@@ -727,7 +763,7 @@
           <circle cx="58" cy="190" r="1.8"/><circle cx="172" cy="214" r="1.4"/><circle cx="24" cy="130" r="1.4"/>
           <circle cx="86" cy="24" r="1.2"/><circle cx="226" cy="104" r="1.3"/>
         </g>
-        <g fill="none" stroke="#ff7ad1" stroke-opacity=".18"><circle cx="120" cy="116" r="52"/><circle cx="120" cy="116" r="84"/></g>
+        <g fill="none" stroke="#c9a46a" stroke-opacity=".25"><circle cx="120" cy="116" r="52"/><circle cx="120" cy="116" r="84"/></g>
       </svg>
       <div class="prose">
         <p class="kicker">Why the name</p>
