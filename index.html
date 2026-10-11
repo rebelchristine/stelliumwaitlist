@@ -525,6 +525,18 @@
   .phone .calc-head h2 { font-size: 1rem; }
 
   @media (min-width: 1280px) { .phone .badge { display: grid; } }
+
+  /* Form box (Sunday line + signup) sits in the hero under the $257K card, with the spinning badge on its corner */
+  .hero-form { order: 2; width: 100%; border-radius: 1.6rem; padding: 3.6rem 1.4rem 1.8rem; margin-top: 3rem; }
+  .calc-col { order: 3; }
+  .hero-form .badge { top: -3rem; left: auto; right: 1rem; transform: none; width: 5.6rem; height: 5.6rem; }
+  .hero-form .badge .badge-core { width: 2.1rem; height: 2.1rem; }
+  @media (min-width: 980px) {
+    .collage-stage { grid-template-areas: "copy phone" "proof phone" "form phone"; grid-template-rows: auto auto 1fr; }
+    .hero-form { grid-area: form; align-self: start; margin-top: 2.6rem; padding: 3.4rem 2.2rem 2rem; }
+    .hero-form .badge { top: -4.6rem; left: auto; right: 1.8rem; transform: none; width: 6.8rem; height: 6.8rem; }
+    .hero-form .badge .badge-core { width: 2.6rem; height: 2.6rem; }
+  }
 </style>
 </head>
 <body>
@@ -561,13 +573,6 @@
       <!-- Calculator inside a phone: runs in the browser only, nothing is sent or saved -->
       <div class="calc-col">
       <div class="phone" id="calculator">
-          <a class="badge" href="#join" aria-label="Join the waitlist">
-            <svg viewBox="0 0 120 120" aria-hidden="true">
-              <defs><path id="badge-circle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
-              <text><textPath href="#badge-circle">JOIN THE WAITLIST · JOIN THE WAITLIST · </textPath></text>
-            </svg>
-            <span class="badge-core" aria-hidden="true">↓</span>
-          </a>
         <div class="phone-screen">
           <div class="phone-notch" aria-hidden="true"></div>
           <div class="calc">
@@ -623,13 +628,14 @@
         <span>One service-based founder's revenue over three years, using the method inside Stellium.</span>
       </div>
 
-
-    </div>
-
-    <div class="collage-band">
-      <div class="wrap band-grid">
-
-        <div class="band-panel dark">
+      <div class="band-panel dark hero-form">
+          <a class="badge" href="#join" aria-label="Join the waitlist">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="badge-circle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+              <text><textPath href="#badge-circle">JOIN THE WAITLIST · JOIN THE WAITLIST · </textPath></text>
+            </svg>
+            <span class="badge-core" aria-hidden="true">↓</span>
+          </a>
           <p class="before">It's Sunday night, payroll is due tomorrow, you have your bank app open, and you are running the math in your head. Again.</p>
           <p class="lede">Stellium is designed to help you make the financial decisions you need to make today, without an accounting degree, a spreadsheet, or complicated accounting software.</p>
 
@@ -646,8 +652,9 @@
           </form>
         </div>
 
-      </div>
+
     </div>
+
   </section>
 
   <!-- Client results ribbon (anonymized, provided by Christine 2026-10-10) -->
