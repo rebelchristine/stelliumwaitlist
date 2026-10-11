@@ -516,13 +516,15 @@
 
   /* Spinning badge lives on the phone now, so it shows above the fold */
   .phone { position: relative; left: auto; top: auto; }
-  .phone .badge { position: absolute; z-index: 5; top: -1.6rem; right: -.6rem; left: auto; transform: none; width: 5.4rem; height: 5.4rem; }
+  .phone .badge { display: none; }
   .phone .badge .badge-core { width: 2.1rem; height: 2.1rem; }
   @media (min-width: 980px) {
-    .phone .badge { top: 2.5rem; right: auto; left: -3.6rem; width: 6.8rem; height: 6.8rem; }
+    .phone .badge { display: none; position: absolute; z-index: 5; top: 42%; right: auto; left: -9rem; transform: none; width: 6.8rem; height: 6.8rem; }
     .phone .badge .badge-core { width: 2.6rem; height: 2.6rem; }
   }
   .phone .calc-head h2 { font-size: 1rem; }
+
+  @media (min-width: 1280px) { .phone .badge { display: grid; } }
 </style>
 </head>
 <body>
