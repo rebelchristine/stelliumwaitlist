@@ -205,7 +205,7 @@
   .app { background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 1.4rem; overflow: hidden; box-shadow: 0 40px 70px -40px rgba(26, 18, 56, .45); }
   .app-bar { display: flex; align-items: center; gap: .4rem; padding: .8rem 1.1rem; border-bottom: 1px solid var(--line); background: var(--paper); }
   .app-bar i { width: .55rem; height: .55rem; border-radius: 50%; background: var(--line); }
-  .app-bar span { margin-left: .6rem; font-size: .8rem; color: var(--ink-faint); }
+  .app-bar span { font-size: .8rem; color: var(--ink-faint); }
   .app-body { padding: 1.4rem; }
   .app-label { font: 600 .7rem/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); }
   .app-total { font: 500 2.5rem/1.1 var(--serif); letter-spacing: -0.02em; margin: .4rem 0 1.1rem; }
@@ -542,23 +542,18 @@
   .app-shot .app-caption { margin: 0; padding: .7rem 1.1rem; border-top: 1px solid var(--line); }
   @media (min-width: 900px) { #what .split { grid-template-columns: 1fr; gap: 2.5rem; } }
   .app-shot { width: 100%; max-width: 60rem; margin: 0; }
-  /* The runway screenshot is a wide strip; on phones show a readable close-up of the runway number */
-  @media (max-width: 640px) { .app-shot img.shot-wide { aspect-ratio: 4 / 3; object-fit: cover; object-position: 44% 50%; } }
+  /* The runway screenshot runs the full width of the section; on phones it crops to a readable close-up of the runway number */
+  .shot-wrap { width: 100%; }
+  .shot-wrap .app-shot { max-width: none; }
+  @media (max-width: 640px) { .app-shot img.shot-wide { aspect-ratio: 4 / 3; object-fit: cover; object-position: 0% 50%; } }
 
-  /* Two calm callouts on the runway screenshot: corner cards on wide screens, a quiet row under the image on phones */
-  .shot-wrap { position: relative; width: 100%; max-width: 60rem; }
-  .callouts { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-top: .9rem; }
-  .callout { display: grid; gap: .15rem; padding: .75rem .95rem; background: #fff; border: 1px solid rgba(163, 129, 89, .45); border-radius: 1rem; box-shadow: 0 18px 40px -26px rgba(26, 18, 56, .6); }
-  .callout b { font: 600 1.35rem/1.1 var(--sans); letter-spacing: -0.035em; color: var(--night); }
-  .callout span { font-size: .84rem; line-height: 1.35; color: var(--ink-soft); }
+  /* Three callouts in a row under the runway screenshot, one column on phones */
+  .callouts { display: grid; gap: .75rem; margin-top: 1rem; }
+  @media (min-width: 700px) { .callouts { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
+  .callout { display: grid; gap: .2rem; align-content: start; padding: .9rem 1.05rem; background: #fff; border: 1px solid rgba(163, 129, 89, .45); border-radius: 1rem; box-shadow: 0 18px 40px -26px rgba(26, 18, 56, .6); }
+  .callout b { font: 600 1.3rem/1.15 var(--sans); letter-spacing: -0.03em; color: var(--night); }
+  .callout span { font-size: .9rem; line-height: 1.4; color: var(--ink-soft); }
   .callout b em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--pink-ink); }
-  @media (min-width: 900px) {
-    .callouts { display: block; margin: 0; }
-    .callout { position: absolute; z-index: 2; width: 15rem; animation: drift 6s ease-in-out infinite; }
-    .callout-runway { left: -2rem; top: 44%; }
-    .callout-floor { right: -2rem; top: -1.8rem; animation-delay: 1.5s; }
-  }
-  @media (prefers-reduced-motion: reduce) { .callout { animation: none; } }
 
   /* The decision screenshot under How it works */
   .decision-shot { margin-top: 2.5rem; max-width: 52rem; }
@@ -735,13 +730,14 @@
 
       <div class="shot-wrap">
         <figure class="app app-shot">
-          <div class="app-bar"><i></i><i></i><i></i><span>Stellium · Runway</span></div>
-          <img class="shot-wide" src="img/stellium-runway.png" alt="The Stellium runway screen with sample data: 17 weeks of runway, $84,600 cash on hand, a $70,000 safety floor, and the lowest week ahead at $67,638 starting March 1" width="1756" height="447" loading="lazy">
+          <div class="app-bar"><span>Stellium · Runway</span></div>
+          <img class="shot-wide" src="img/stellium-runway.png" alt="The Stellium runway screen with sample data: 17 weeks of runway, $84,600 cash on hand, a $70,000 safety floor, and the lowest week ahead at $67,638 starting March 1" width="1150" height="447" loading="lazy">
           <figcaption class="app-caption">A look inside Stellium, with sample data.</figcaption>
         </figure>
         <div class="callouts">
-          <div class="callout callout-runway"><b>Runway, <em>in weeks</em></b><span>How long your cash stays above your floor</span></div>
-          <div class="callout callout-floor"><b>Your floor</b><span>The number you choose to keep in the bank</span></div>
+          <div class="callout"><b>Runway, <em>in weeks</em></b><span>How long your cash stays above your floor</span></div>
+          <div class="callout"><b>Your floor</b><span>The number you choose to keep in the bank</span></div>
+          <div class="callout"><b>Your lowest week</b><span>Seen months ahead, so you have time to plan for it</span></div>
         </div>
       </div>
     </div>
@@ -769,7 +765,7 @@
         </li>
       </ol>
       <figure class="app app-shot decision-shot">
-        <div class="app-bar"><i></i><i></i><i></i><span>Stellium · Run the decision</span></div>
+        <div class="app-bar"><span>Stellium · Run the decision</span></div>
         <img src="img/stellium-decision.png" alt="A decision in Stellium with sample data: hiring a seventh clinician in November takes runway from 17 weeks to 13, with cash dipping under the floor the week of January 18, and starting her March 1 instead keeps runway at 17 weeks" width="1920" height="1254" loading="lazy">
         <figcaption class="app-caption">A seventh clinician in November takes her runway from 17 weeks to 13, and moving the start to March 1, after her insurance renewal, keeps it at 17. Sample data.</figcaption>
       </figure>
