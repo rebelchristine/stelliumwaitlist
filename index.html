@@ -542,6 +542,8 @@
   .app-shot .app-caption { margin: 0; padding: .7rem 1.1rem; border-top: 1px solid var(--line); }
   @media (min-width: 900px) { #what .split { grid-template-columns: 1fr; gap: 2.5rem; } }
   .app-shot { width: 100%; max-width: 60rem; }
+  /* The runway screenshot is a wide strip; on phones show a readable close-up of the runway number */
+  @media (max-width: 640px) { .app-shot img.shot-wide { aspect-ratio: 4 / 3; object-fit: cover; object-position: 44% 50%; } }
 </style>
 </head>
 <body>
@@ -713,8 +715,8 @@
       </div>
 
       <figure class="app app-shot">
-        <div class="app-bar"><i></i><i></i><i></i><span>Stellium · Dashboard</span></div>
-        <img src="img/stellium-dashboard.png" alt="The Stellium dashboard: cash on hand, the cushion above a cash floor, and a 12-month cash position chart, shown with sample data" width="1059" height="703" loading="lazy">
+        <div class="app-bar"><i></i><i></i><i></i><span>Stellium · Runway</span></div>
+        <img class="shot-wide" src="img/stellium-runway.png" alt="The Stellium runway screen with sample data: 17 weeks of runway, $84,600 cash on hand, a $70,000 safety floor, and the lowest week ahead at $67,638 starting March 1" width="1756" height="447" loading="lazy">
         <figcaption class="app-caption">A look inside Stellium, with sample data.</figcaption>
       </figure>
     </div>
