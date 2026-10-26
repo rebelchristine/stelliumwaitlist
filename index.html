@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Stellium · See your next 90 days</title>
-<meta name="description" content="Stellium is cash flow software for women founders on QuickBooks. See what your cash will do for the next 90 days. Join the waitlist.">
-<meta property="og:title" content="Stellium · See what your cash will do for the next 90 days">
-<meta property="og:description" content="Cash flow software for women founders on QuickBooks. Join the waitlist.">
+<title>Stellium · Stop guessing about your business finances</title>
+<meta name="description" content="Stellium is the financial decision-making platform for women founders on QuickBooks. It brings you the one money decision that matters this week and shows you its impact before you make it. Join the waitlist.">
+<meta property="og:title" content="Stellium · Stop guessing about your business finances">
+<meta property="og:description" content="The one money decision that matters this week, with its impact shown before you make it. For women founders on QuickBooks. Join the waitlist.">
 <link rel="canonical" href="https://www.meetstellium.com/">
 <meta property="og:url" content="https://www.meetstellium.com/">
 <meta property="og:image" content="https://www.meetstellium.com/img/christine-walsh.jpg">
@@ -558,6 +558,20 @@
   /* The decision screenshot under How it works */
   .decision-shot { margin-top: 2.5rem; max-width: 52rem; }
   @media (max-width: 640px) { .decision-shot img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 47% 50%; } }
+
+  /* Demo sync (2026-10-25): runway glance in the calculator, phone screenshots from the demo */
+  .calc-line { font: italic 400 1.15rem/1.35 var(--serif); color: var(--neon); margin: .5rem 0 .3rem; }
+  .form-welcome { font: italic 400 1.1rem/1.4 var(--serif); color: var(--neon); margin: .8rem 0 0; }
+  .problem-meet { font-size: 1.1rem; }
+  @media (min-width: 900px) { #what .split { grid-template-columns: 1.15fr .85fr; gap: 4rem; } }
+  .phone-shot-wrap { margin: 0; }
+  .phone-shot { position: relative; max-width: 330px; margin: 0 auto; border-radius: 1.6rem; overflow: hidden; border: 1px solid var(--line); background: var(--paper); box-shadow: 0 40px 70px -40px rgba(26, 18, 56, .45); }
+  .phone-shot img { display: block; width: 100%; height: auto; }
+  .phone-shot.tall { max-height: 620px; }
+  .phone-shot.tall::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: linear-gradient(rgba(247, 241, 234, 0), var(--paper)); }
+  .shot-caption { max-width: 330px; margin: .9rem auto 0; font-size: .82rem; line-height: 1.5; color: var(--ink-faint); text-align: center; }
+  .loop-shots { display: grid; gap: 2.5rem; margin: 2.5rem 0 0; }
+  @media (min-width: 760px) { .loop-shots { grid-template-columns: 1fr 1fr; align-items: start; } }
 </style>
 </head>
 <body>
@@ -586,9 +600,9 @@
   <section class="collage">
     <div class="wrap collage-stage">
       <div class="hero-copy">
-        <p class="hero-eyebrow">For women founders building $100K–$1M service businesses</p>
-        <h1 class="hero-h1">Stop guessing about your business money.</h1>
-        <p class="hero-sub">See where your cash is headed over the next 90 days, so you can pay yourself, hire, and grow with confidence.</p>
+        <p class="hero-eyebrow">The financial decision-making platform for women founders building $100K–$1M service businesses</p>
+        <h1 class="hero-h1">Stop guessing about your business finances.</h1>
+        <p class="hero-sub">Stellium brings you the one money decision that matters this week and shows you its impact before you make it. Knowing gives you freedom, choice, and power.</p>
       </div>
 
       <!-- Calculator inside a phone: runs in the browser only, nothing is sent or saved -->
@@ -598,43 +612,51 @@
           <div class="phone-notch" aria-hidden="true"></div>
           <div class="calc">
             <div class="calc-head">
-              <h2>See <em>your</em> next 90 days right now</h2>
+              <h2>See <em>your</em> runway right now</h2>
               <span class="calc-tag">Example · nothing saved</span>
             </div>
             <div class="calc-fields">
               <div class="field">
                 <label for="c-cash">Cash on hand</label>
-                <span class="money">$<input id="c-cash" inputmode="numeric" autocomplete="off" value="30,000" aria-describedby="c-cash-hint"></span>
+                <span class="money">$<input id="c-cash" inputmode="numeric" autocomplete="off" value="42,000" aria-describedby="c-cash-hint"></span>
                 <small id="c-cash-hint">In the business accounts today.</small>
               </div>
               <div class="field">
                 <label for="c-in">Money in / month</label>
-                <span class="money">$<input id="c-in" inputmode="numeric" autocomplete="off" value="25,000" aria-describedby="c-in-hint"></span>
+                <span class="money">$<input id="c-in" inputmode="numeric" autocomplete="off" value="24,000" aria-describedby="c-in-hint"></span>
                 <small id="c-in-hint">An ordinary month.</small>
               </div>
               <div class="field">
                 <label for="c-out">Money out / month</label>
-                <span class="money">$<input id="c-out" inputmode="numeric" autocomplete="off" value="21,000" aria-describedby="c-out-hint"></span>
+                <span class="money">$<input id="c-out" inputmode="numeric" autocomplete="off" value="27,000" aria-describedby="c-out-hint"></span>
                 <small id="c-out-hint">Including what you pay yourself.</small>
+              </div>
+              <div class="field">
+                <label for="c-floor">Your floor</label>
+                <span class="money">$<input id="c-floor" inputmode="numeric" autocomplete="off" value="20,000" aria-describedby="c-floor-hint"></span>
+                <small id="c-floor-hint">The bank balance that makes you start to worry.</small>
               </div>
             </div>
             <div class="calc-result" aria-live="polite">
-              <div class="result-label">Your cash in 90 days</div>
-              <div class="result-figure" id="c-result">$42,000</div>
-              <p class="result-note" id="c-note">Up $12,000 from today.</p>
-              <svg class="calc-chart" id="c-chart" viewBox="0 0 320 110" role="img" aria-label="Your cash over the next 90 days">
+              <div class="result-label">Your runway</div>
+              <div class="result-figure" id="c-result">31 weeks</div>
+              <p class="result-note" id="c-note">About 7 months above your $20,000 floor.</p>
+              <p class="calc-line" id="c-line-text">You have time to adjust.</p>
+              <svg class="calc-chart" id="c-chart" viewBox="0 0 320 110" role="img" aria-label="Your cash over the next six months, with your floor">
                 <defs>
                   <linearGradient id="c-fill" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0" stop-color="#ff7ad1" stop-opacity=".3"/>
                     <stop offset="1" stop-color="#ff7ad1" stop-opacity="0"/>
                   </linearGradient>
                 </defs>
-                <line id="c-zero" x1="0" x2="320" y1="92" y2="92" stroke="rgba(255,255,255,.18)" stroke-dasharray="3 4"/>
                 <path id="c-area" fill="url(#c-fill)"/>
+                <line id="c-floor-line" x1="0" x2="320" y1="80" y2="80" stroke="#c9a46a" stroke-opacity=".8" stroke-dasharray="4 4"/>
+                <text id="c-floor-label" x="8" y="76" font-family="Mulish, sans-serif" font-size="10" fill="#c9a46a">Your floor</text>
                 <path id="c-line" fill="none" stroke="#ff7ad1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                <g font-family="Inter Tight, sans-serif" font-size="11" fill="#cbc6d8">
+                <circle id="c-dot" r="5" fill="#ff7ad1" stroke="#1a1238" stroke-width="2" style="display:none"/>
+                <g font-family="Mulish, sans-serif" font-size="11" fill="#cbc6d8">
                   <text x="4" y="107">Today</text>
-                  <text x="316" y="107" text-anchor="end">90 days</text>
+                  <text x="316" y="107" text-anchor="end">6 months</text>
                 </g>
               </svg>
               <p class="calc-foot">Stellium is designed to keep it live without you lifting a finger.</p>
@@ -658,7 +680,6 @@
             <span class="badge-core" aria-hidden="true">↓</span>
           </a>
           <p class="before">It's Sunday night, payroll is due tomorrow, you have your bank app open, and you are running the math in your head. Again.</p>
-          <p class="lede">Stellium is designed to help you make the financial decisions you need to make today, without an accounting degree, a spreadsheet, or complicated accounting software.</p>
 
           <form class="waitlist" action="/api/waitlist" method="post" novalidate>
             <div class="waitlist-row">
@@ -666,6 +687,7 @@
               <input id="email-hero" type="email" name="email" placeholder="you@yourbusiness.com" autocomplete="email" inputmode="email" required aria-describedby="error-hero">
               <button class="btn" type="submit">Get early access to Stellium</button>
             </div>
+            <p class="form-welcome">Welcome to knowing your money.</p>
             <div class="hp" aria-hidden="true"><input type="text" name="company" tabindex="-1" autocomplete="off"></div>
             <p class="form-error" id="error-hero" role="alert"></p>
             <p class="form-benefit">Be among the first founders invited to Stellium, with access to founding-member pricing.</p>
@@ -702,16 +724,12 @@
     <div class="wrap">
       <div class="prose">
         <p class="kicker">What it looks like right now</p>
-        <h2>You're making your biggest business decisions based on a number that only tells you about today.</h2>
-        <p class="problem-punch">Your bank balance.</p>
-        <p class="lede">You want to pay yourself more, hire someone to help, and finally take that vacation.</p>
-        <p>But every decision starts with staring at your bank balance and spinning in your head.</p>
-        <p>Remember that spreadsheet you built in January when you promised yourself you'd do money differently this year? It's been sitting untouched since March.</p>
-        <p>Nobody taught you how to run the money side of a business. You're smart, and money is coming in.</p>
-        <p class="problem-turn"><em>You're just missing a way to see what's ahead before you decide.</em></p>
-        <p>So when you hire, rest, or raise your pay, you can make that choice informed, grounded, and on purpose.</p>
-        <p>Imagine owning your financial decisions from here on, fully informed.</p>
-        <p class="problem-reveal">That's Stellium.</p>
+        <h2>You check your money all the time.</h2>
+        <p class="lede">You open the bank app, you log into the QuickBooks dashboard, you open the P&amp;L and balance sheet your bookkeeper sent, and every time you land in the same place, looking at numbers that don't tell you what to do next.</p>
+        <p>So you freeze. Maybe you triage whatever is loudest, maybe you push the decision off one more week, or maybe you pick up your phone and scroll Instagram until the feeling passes.</p>
+        <p>And the decision you needed to make, the hire, the raise, the time off, waits until a deadline drags you back in, when your choices have already narrowed.</p>
+        <p class="problem-turn"><em>That freeze is what happens to smart women looking at numbers built for accountants.</em></p>
+        <p class="problem-meet"><b>Stellium meets you right at the freeze.</b> You open it in place of your bank app and see money in, money out, and how many weeks of runway you have, with the one decision that matters this week and its impact shown before you make it. That's the moment you think, <em>okay, I got this.</em></p>
         <p>Join the waitlist and know what it feels like to own your money. That is power, my friend.</p>
         <p><a class="btn" href="#join">Get early access to Stellium</a></p>
       </div>
@@ -723,23 +741,23 @@
     <div class="wrap split">
       <div class="prose">
         <p class="kicker">What you see when you open it</p>
-        <h2>One calm view of the year ahead, current from the QuickBooks you already use</h2>
-        <p>Stellium is where you see what is coming before you decide. It connects to the QuickBooks you already use, so there is nothing to migrate and your bookkeeper keeps doing the work they do now.</p>
-        <p>It takes what your books already know and carries it forward 30, 60, 90 days, and out to a year, with what is moving your cash and when. So when the hire comes up, you are looking at what happens if you make it, and you are the one deciding.</p>
-      </div>
-
-      <div class="shot-wrap">
-        <figure class="app app-shot">
-          <div class="app-bar"><span>Stellium · Runway</span></div>
-          <img class="shot-wide" src="img/stellium-runway.png" alt="The Stellium runway screen with sample data: 17 weeks of runway, $84,600 cash on hand, a $70,000 safety floor, and the lowest week ahead at $67,638 starting March 1" width="1150" height="447" loading="lazy">
-          <figcaption class="app-caption">A look inside Stellium, with sample data.</figcaption>
-        </figure>
+        <h2>Money in, money out, and how much time you have</h2>
+        <p>Stellium opens on three numbers: what is coming in over the next 30 days, what is going out, and your runway, the number of weeks your cash stays above the balance that makes you worry.</p>
+        <p>Under them sits one line for the week that tells you what it means right now, like <em>You have time to adjust</em>, or <em>Let's make a decision today</em>, or <em>You've banked $5,400. That was your call.</em></p>
+        <p>It connects to the QuickBooks you already use, so there is nothing to migrate and your bookkeeper keeps doing the work they do now.</p>
         <div class="callouts">
           <div class="callout"><b>Runway, <em>in weeks</em></b><span>How long your cash stays above your floor</span></div>
-          <div class="callout"><b>Your floor</b><span>The number you choose to keep in the bank</span></div>
-          <div class="callout"><b>Your lowest week</b><span>Seen months ahead, so you have time to plan for it</span></div>
+          <div class="callout"><b>Your floor</b><span>The bank balance that makes you start to worry</span></div>
+          <div class="callout"><b>One line for the week</b><span>What your numbers mean for you right now</span></div>
         </div>
       </div>
+
+      <figure class="phone-shot-wrap">
+        <div class="phone-shot">
+          <img src="img/demo-home.png" alt="The Stellium home screen with sample data: Welcome, Adaeze. Coming in $87,200 and going out $78,100 over the next 30 days, 17 weeks of runway above a $70,000 floor, and the line for the week: You've banked $5,400. That was your call." width="840" height="1222" loading="lazy">
+        </div>
+        <figcaption class="shot-caption">The Stellium home screen, with sample data.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -748,27 +766,36 @@
     <div class="wrap">
       <div class="prose">
         <p class="kicker">How it works</p>
-        <h2>Three moves, and you are deciding from what is coming</h2>
+        <h2>One money decision a week, from the first look to what it did</h2>
       </div>
       <ol class="steps">
         <li>
-          <h3>Connect QuickBooks</h3>
-          <p>You do it once. Stellium reads your books, so the view starts from what is in your accounts today and updates as your books do.</p>
+          <h3>Answer two questions</h3>
+          <p>Stellium asks how money moves through your business and what bank balance makes you start to worry. You connect QuickBooks once, and it fills in the rest.</p>
         </li>
         <li>
-          <h3>See what is coming</h3>
-          <p>Cash on hand, what is coming in, what is going out, and the low point, laid out so you know whether you can pay yourself before you get there.</p>
+          <h3>Get this week's decision</h3>
+          <p>When a slow month is coming, a big bill is due, or money comes in strong, Stellium brings you the decision early, with two real paths and the impact of each on your runway before you choose.</p>
         </li>
         <li>
-          <h3>Run the decision first</h3>
-          <p>The hire, the marketing spend, the client who may not re-enroll. Watch each one move your cash before it happens, and then make the call on purpose.</p>
+          <h3>See what your call did</h3>
+          <p>Once the outcome is in, the decision comes back to you with what happened, whatever it turned out to be, so you can watch your own judgment at work.</p>
         </li>
       </ol>
-      <figure class="app app-shot decision-shot">
-        <div class="app-bar"><span>Stellium · Run the decision</span></div>
-        <img src="img/stellium-decision.png" alt="A decision in Stellium with sample data: hiring a seventh clinician in November takes runway from 17 weeks to 13, with cash dipping under the floor the week of January 18, and starting her March 1 instead keeps runway at 17 weeks" width="1920" height="1254" loading="lazy">
-        <figcaption class="app-caption">A seventh clinician in November takes her runway from 17 weeks to 13, and moving the start to March 1, after her insurance renewal, keeps it at 17. Sample data.</figcaption>
-      </figure>
+      <div class="loop-shots">
+        <figure class="phone-shot-wrap">
+          <div class="phone-shot tall">
+            <img src="img/demo-decision.png" alt="This week's decision in Stellium, with sample data: Get ready for a slow December. If it runs as slow as last year, about $32,800 less comes in and runway drops from 17 weeks to 11. Two ways to keep payroll safe: line up a $30,000 line of credit, which keeps 17 weeks, or take less pay through the slow stretch, which gives 13 weeks." width="840" height="2446" loading="lazy">
+          </div>
+          <figcaption class="shot-caption">This week's decision: if December runs as slow as last year, her runway drops from 17 weeks to 11, and Stellium brings her two ways to keep payroll safe while it is still October. Sample data.</figcaption>
+        </figure>
+        <figure class="phone-shot-wrap">
+          <div class="phone-shot">
+            <img src="img/demo-return.png" alt="A decision coming back in Stellium, with sample data: You've banked $5,400. Six weeks ago she raised her private-pay rate from $160 to $175 a session, every private-pay client stayed, and the new rate has put about $5,400 in her account. That was your call." width="840" height="930" loading="lazy">
+          </div>
+          <figcaption class="shot-caption">Six weeks after she raised her rate, the decision comes back with what it banked. Sample data.</figcaption>
+        </figure>
+      </div>
       <div class="trust">
         <span class="trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
         <div>
@@ -792,8 +819,8 @@
           <h3>Stellium is for you if</h3>
           <ul>
             <li>You run a service business (coaching, consulting, an agency, a group practice) bringing in roughly $100K to $1M.</li>
-            <li>You use QuickBooks, you may have a bookkeeper, and you still feel like you are flying blind.</li>
-            <li>You want to pay yourself a real salary, make the next hire, or take a break, and you want to see it work on paper first.</li>
+            <li>You use QuickBooks, you may have a bookkeeper sending you a P&amp;L, and you still freeze when you look at your numbers.</li>
+            <li>You want to pay yourself a real salary, make the next hire, or take a break, and you want to see the impact before you decide.</li>
           </ul>
         </div>
         <div class="no">
@@ -967,44 +994,73 @@
     var moneyIn = document.getElementById("c-in");
     var moneyOut = document.getElementById("c-out");
     var result = document.getElementById("c-result");
+    var floor = document.getElementById("c-floor");
     var note = document.getElementById("c-note");
+    var oneLine = document.getElementById("c-line-text");
     var line = document.getElementById("c-line");
     var area = document.getElementById("c-area");
-    var zero = document.getElementById("c-zero");
+    var floorLine = document.getElementById("c-floor-line");
+    var floorLabel = document.getElementById("c-floor-label");
+    var dot = document.getElementById("c-dot");
+
+    // Runway = weeks her cash stays above her floor, the same measure the Stellium demo uses.
+    // The line for the week follows the demo's two modes. The cutoff between them is Christine's call;
+    // 8 weeks (about two months) is a placeholder until she sets it.
+    var TIME_TO_ADJUST_WEEKS = 8;
+    var HORIZON = 26; // chart shows six months
 
     function read(input) { return Number(String(input.value).replace(/[^0-9]/g, "")) || 0; }
     function dollars(n) { return (n < 0 ? "-$" : "$") + Math.abs(Math.round(n)).toLocaleString("en-US"); }
-
-    function update() {
-      var start = read(cash);
-      var net = read(moneyIn) - read(moneyOut);
-      var end = start + net * 3;
-      result.textContent = dollars(end);
-
-      if (net >= 0) {
-        note.textContent = net === 0 ? "Holding steady at today's level." : "Up " + dollars(net * 3) + " from today.";
-      } else if (end >= 0) {
-        note.textContent = "Down " + dollars(-net * 3) + " from today.";
-      } else {
-        var days = Math.max(0, Math.floor(start / (-net / 30)));
-        note.textContent = "At this pace, cash runs out in about " + days + " days.";
-      }
-
-      // Chart: a straight line from today to day 90, scaled to fit, with a zero line.
-      // Show zero only when cash goes below it; otherwise start the scale at half the lower value so the trend reads.
-      var lo = end < 0 ? end : Math.min(start, end) * 0.5, hi = Math.max(start, end, 1);
-      var pad = (hi - lo) * 0.12 || 1;
-      lo -= pad; hi += pad;
-      function y(v) { return 8 + (1 - (v - lo) / (hi - lo)) * 84; }
-      var y0 = y(start), y1 = y(end), yz = y(0);
-      line.setAttribute("d", "M4 " + y0.toFixed(1) + " L316 " + y1.toFixed(1));
-      area.setAttribute("d", "M4 " + y0.toFixed(1) + " L316 " + y1.toFixed(1) + " L316 92 L4 92 Z");
-      zero.setAttribute("y1", yz.toFixed(1));
-      zero.setAttribute("y2", yz.toFixed(1));
-      zero.style.display = lo < 0 ? "" : "none";
+    function months(weeks) {
+      var half = Math.round((weeks / 4.33) * 2) / 2;
+      if (half < 1) return "Less than a month";
+      var label = half % 1 ? Math.floor(half) + "½" : String(half);
+      return "About " + label + " month" + (half > 1 ? "s" : "");
     }
 
-    [cash, moneyIn, moneyOut].forEach(function (input) {
+    function update() {
+      var start = read(cash), worry = read(floor);
+      var weekly = (read(moneyIn) - read(moneyOut)) * 12 / 52;
+      var weeks;
+      if (start < worry) weeks = 0;
+      else if (weekly >= 0) weeks = Infinity;
+      else weeks = Math.floor((start - worry) / -weekly);
+
+      if (weeks === 0) {
+        result.textContent = "0 weeks";
+        note.textContent = "Your cash is under your " + dollars(worry) + " floor today.";
+      } else if (weeks > 52) {
+        result.textContent = "52+ weeks";
+        note.textContent = "Above your " + dollars(worry) + " floor for the whole year ahead.";
+      } else {
+        result.textContent = weeks + (weeks === 1 ? " week" : " weeks");
+        note.textContent = months(weeks) + " above your " + dollars(worry) + " floor.";
+      }
+      oneLine.textContent = weeks >= TIME_TO_ADJUST_WEEKS ? "You have time to adjust." : "Let's make a decision today.";
+
+      // Chart: cash from today to six months out, scaled to fit, with her floor as a gold dashed line
+      // and a pink dot where cash crosses under it.
+      var end = start + weekly * HORIZON;
+      var lo = Math.min(start, end, worry), hi = Math.max(start, end, worry, 1);
+      var pad = (hi - lo) * 0.15 || 1;
+      lo -= pad; hi += pad;
+      function y(v) { return 8 + (1 - (v - lo) / (hi - lo)) * 84; }
+      var y0 = y(start), y1 = y(end), yf = y(worry);
+      line.setAttribute("d", "M4 " + y0.toFixed(1) + " L316 " + y1.toFixed(1));
+      area.setAttribute("d", "M4 " + y0.toFixed(1) + " L316 " + y1.toFixed(1) + " L316 92 L4 92 Z");
+      floorLine.setAttribute("y1", yf.toFixed(1));
+      floorLine.setAttribute("y2", yf.toFixed(1));
+      floorLabel.setAttribute("y", (yf > 20 ? yf - 5 : yf + 13).toFixed(1));
+      if (weeks > 0 && weeks <= HORIZON) {
+        dot.setAttribute("cx", (4 + (weeks / HORIZON) * 312).toFixed(1));
+        dot.setAttribute("cy", yf.toFixed(1));
+        dot.style.display = "";
+      } else {
+        dot.style.display = "none";
+      }
+    }
+
+    [cash, moneyIn, moneyOut, floor].forEach(function (input) {
       input.addEventListener("input", update);
       input.addEventListener("blur", function () { input.value = read(input).toLocaleString("en-US"); update(); });
       input.addEventListener("focus", function () { input.select(); });
